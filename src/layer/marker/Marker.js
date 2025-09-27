@@ -6,6 +6,7 @@ import {Point} from '../../geometry/Point.js';
 import * as DomUtil from '../../dom/DomUtil.js';
 import * as DomEvent from '../../dom/DomEvent.js';
 import {MarkerDrag} from './Marker.Drag.js';
+import {I18n} from '../../core/I18n.js';
 
 /*
  * @class Marker
@@ -47,8 +48,8 @@ export class Marker extends Layer {
 
 			// @option alt: String = 'Marker'
 			// Text for the `alt` attribute of the icon image.
-			// [Useful for accessibility](https://leafletjs.com/examples/accessibility/#markers-must-be-labelled).
-			alt: 'Marker',
+			// [Important for accessibility](https://leafletjs.com/examples/accessibility/#markers-must-be-labelled).
+			alt: null,
 
 			// @option zIndexOffset: Number = 0
 			// By default, marker images zIndex is set automatically based on its latitude. Use this option if you want to put the marker on top of all others (or below), specifying a high value like `1000` (or high negative value, respectively).
@@ -233,7 +234,7 @@ export class Marker extends Layer {
 			}
 
 			if (icon.tagName === 'IMG') {
-				icon.alt = options.alt ?? '';
+				icon.alt = options.alt ?? I18n.translate('Marker');
 			}
 		}
 
