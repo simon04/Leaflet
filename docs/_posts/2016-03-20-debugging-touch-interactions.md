@@ -6,9 +6,7 @@ author: Iván Sánchez
 authorsite: http://ivan.sanchezortega.es
 ---
 
-
 Most of the time, fixing bugs in the Leaflet code is a breeze. The code is simple, easy to read (for the most part) and well structured. Code conventions and unit tests make it easy for newcomers to try some modifications to the core code. During the past few months we've sent a few simple bug reports to the folks at [Your First PR](https://yourfirstpr.github.io/) - we love to see first-timers contributing fixes to Leaflet!
-
 
 Some of the difficulties of maintaining/developing a javascript library like Leaflet is making sure that everything works on every major browser out there. A technique that works on Firefox on a Ubuntu desktop might result in glitches in Safari on a Macbook; something that works in Edge on Windows 10 might break completely in Chrome on Android.
 
@@ -41,7 +39,7 @@ If I had an extra hand or two, debugging touch interactions would be much simple
 
 Fortunately, we can leverage [dispatching custom events to the browser](https://developer.mozilla.org/docs/Web/API/EventTarget/dispatchEvent). Normally, when we use a mouse (or a touchpad, or a touchscreen, or a digitizer tablet), the web browser will generate a [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) (or a [`TouchEvent`](https://developer.mozilla.org/docs/Web/API/TouchEvent) or a [`PointerEvent`](https://developer.mozilla.org/docs/Web/API/PointerEvent)). But instead of that, we javascript programmers can create a synthetic (i.e. fake) event, then throw it to the browser so it can dispatch it to whatever code is listening for an event.
 
-Unfortunately creating and dispatching such events is cumbersome. A touch gesture involves *at least* 4 to 8 events in a particular order, with particular data, with a particular timing. There have been a few attempts to automate this (the best I could find was the [hammer.js simulator](https://github.com/hammerjs/simulator)), but there is no good way of emulating complex custom touch gestures.
+Unfortunately creating and dispatching such events is cumbersome. A touch gesture involves _at least_ 4 to 8 events in a particular order, with particular data, with a particular timing. There have been a few attempts to automate this (the best I could find was the [hammer.js simulator](https://github.com/hammerjs/simulator)), but there is no good way of emulating complex custom touch gestures.
 
 Until now.
 
@@ -49,23 +47,24 @@ I'm proud to introduce [**prosthetic-hand**](https://github.com/Leaflet/prosthet
 
 With prosthetic-hand, I can now automate a pinch-zoom gesture in a Leaflet webpage:
 
-
 <table class="image">
 <caption align="bottom"><small>You get to see my disembodied fingers as a bonus</small></caption>
 <tr><td style='text-align:center'><img src="/docs/images/2016-03-20-prosthetic-hand-zooming.gif" alt="Animated screenshot of prosthetic-hand zooming in and out"/></td></tr>
 </table>
 
-
 With this library loaded, just ask for an extra hand (with a specific timing mode):
+
 <pre><code class="javascript">var h = new Hand({ timing: 'frame' });
 </code></pre>
 
 Then grow some fingers:
+
 <pre><code class="javascript">var f1 = h.growFinger('touch');
 var f2 = h.growFinger('touch');
 </code></pre>
 
 Then move the fingers around (using pixel coordinates and milliseconds):
+
 <pre><code class="javascript">f1.wait(100).moveTo(250, 200, 0)
 	.down().wait(500).moveBy(-200, 0, 1000).wait(500).up().wait(500)
 	.down().wait(500).moveBy( 200, 0, 1000).wait(500).up().wait(500);
@@ -87,7 +86,7 @@ A famous quote (often [misattributed to Abraham Lincoln](http://quoteinvestigato
 
 Web development is no different - having the right tools will make your task so much easier.
 
-It's not just a matter of time. Maybe writing a tool from scratch was time-consuming, but the best gain is that debugging **stops being frustrating**. Before, it was "use a hand on the touchscreen, look closely at the debugger, don't use breakpoints because you don't have enough hands". Now it's "change the timing on the prosthetic-hand events, set a breakpoint, *boom*".
+It's not just a matter of time. Maybe writing a tool from scratch was time-consuming, but the best gain is that debugging **stops being frustrating**. Before, it was "use a hand on the touchscreen, look closely at the debugger, don't use breakpoints because you don't have enough hands". Now it's "change the timing on the prosthetic-hand events, set a breakpoint, _boom_".
 
 And what's even better, having an automated tool means that Leaflet now has [**unit tests for touch interactions**](https://github.com/Leaflet/Leaflet/blob/main/spec/suites/map/handler/Map.TouchZoomSpec.js). The PhantomJS headless web browser can understand the `TouchEvent`s that prosthetic-hand generates, and can check if a map behaves as expected when that gesture is performed.
 

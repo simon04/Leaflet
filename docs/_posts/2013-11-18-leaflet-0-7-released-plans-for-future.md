@@ -22,25 +22,25 @@ For Leaflet, this can only mean very good things &mdash; much more time on Leafl
 
 You can check out the [detailed changelog](https://github.com/Leaflet/Leaflet/blob/main/CHANGELOG.md#07-dev-master) of what's already done over the recent months for 0.7 (about 90 improvements and bugfixes), but I'd like to mention some highlights:
 
-* Added the ability to **upscale tiles** to higher zoom levels (e.g. have zoom 19-20 when the source has 18 max).
-* Added support for **IE11 touch devices**. MS unexpectedly broke their pointer API compatibility between Developer Preview and final IE11 release, and we eventually rewrote quite a bit of code to make everything work smoothly across all IE versions (both desktop & mobile), fixing a bunch of IE10 bugs along the way as well.
-* Officially **dropped IE6 support** (nobody cares anyway) and cleaned up/fixed IE7-8 styles.
-* Dropped the need for **IE conditional comment** when including Leaflet, making the snippet much simpler &mdash; all IE7/8-specific styles got simplified and moved to the main `leaflet.css` file.
-* Fixed an **obscure iOS7 memory leak** that crashed Safari when you tried to create several thousands of layers (e.g. markers for clustering). I still don't understand why it happens, but we managed to fix it with a bit of trickery.
-* Fixed a critical **Chrome for Android** bug that made the tiles disappear after zooming on some devices.
-* Removed some **Earth-related hardcode** in TileLayer implementation to make it easier for plugins like Proj4Leaflet to handle complex projections without horrible hacks. Some other work in this direction to follow in 0.8.
-* Improved **panning performance** on complex pages with significant number of elements &mdash; we found out that simple things like setting a different cursor to `document` (for a "grabbing" hand) caused noticeable performance hit on some browsers (Chrome in particular).
-* **Changed the way maxBounds works**, not enforcing a derived `minZoom` from it but restricting panning across lower zoom levels, along with some tricks to make it play better with panning inertia or offset zooming, etc.
+- Added the ability to **upscale tiles** to higher zoom levels (e.g. have zoom 19-20 when the source has 18 max).
+- Added support for **IE11 touch devices**. MS unexpectedly broke their pointer API compatibility between Developer Preview and final IE11 release, and we eventually rewrote quite a bit of code to make everything work smoothly across all IE versions (both desktop & mobile), fixing a bunch of IE10 bugs along the way as well.
+- Officially **dropped IE6 support** (nobody cares anyway) and cleaned up/fixed IE7-8 styles.
+- Dropped the need for **IE conditional comment** when including Leaflet, making the snippet much simpler &mdash; all IE7/8-specific styles got simplified and moved to the main `leaflet.css` file.
+- Fixed an **obscure iOS7 memory leak** that crashed Safari when you tried to create several thousands of layers (e.g. markers for clustering). I still don't understand why it happens, but we managed to fix it with a bit of trickery.
+- Fixed a critical **Chrome for Android** bug that made the tiles disappear after zooming on some devices.
+- Removed some **Earth-related hardcode** in TileLayer implementation to make it easier for plugins like Proj4Leaflet to handle complex projections without horrible hacks. Some other work in this direction to follow in 0.8.
+- Improved **panning performance** on complex pages with significant number of elements &mdash; we found out that simple things like setting a different cursor to `document` (for a "grabbing" hand) caused noticeable performance hit on some browsers (Chrome in particular).
+- **Changed the way maxBounds works**, not enforcing a derived `minZoom` from it but restricting panning across lower zoom levels, along with some tricks to make it play better with panning inertia or offset zooming, etc.
 
 ### Plans for 0.8
 
 There are several big undertakings in refactoring Leaflet that I'd want to switch to immediately after releasing 0.7 &mdash; I've been holding them off for too long, and they'll be extremely beneficial for plugin and Leaflet-based API authors. Some of them are already in progress.
 
-* Refactoring the **layers** architecture. Currently there's a lot of duplication of logic across implementation of different layers (map, markers, vector layers, etc.), specifically event handling, zoom animation logic, zIndex and pane handling (what appears on top of what etc.). Making the code consistent, more universal and shared across different layers will make it much easier to customize layers and make your own (e.g. integrate d3, etc.)
-* Splitting the huge TileLayer implementation into **GridLayer and TileLayer**, separating image tiles-related logic and grid-logic that will make other grid-like layer implementations (e.g. UTFGrid interaction or tiled GeoJSON) much simpler.
-* Refactoring **zoom animation logic** to make the long-awaited Easey-style animations (zoom-panning between points) possible.
-* Refactoring **projections** code to make it easier to set up flat maps and weird projections and customize how Leaflet handles them.
-* Refactoring the **vector layers** code to make it possible to use different rendering backends (Canvas, SVG, etc.) for different layers on the same map and switch between them easily. This will also open it up for interesting extensions, like indexing layers with [RBush](https://github.com/mourner/rbush) for fast interaction features.
+- Refactoring the **layers** architecture. Currently there's a lot of duplication of logic across implementation of different layers (map, markers, vector layers, etc.), specifically event handling, zoom animation logic, zIndex and pane handling (what appears on top of what etc.). Making the code consistent, more universal and shared across different layers will make it much easier to customize layers and make your own (e.g. integrate d3, etc.)
+- Splitting the huge TileLayer implementation into **GridLayer and TileLayer**, separating image tiles-related logic and grid-logic that will make other grid-like layer implementations (e.g. UTFGrid interaction or tiled GeoJSON) much simpler.
+- Refactoring **zoom animation logic** to make the long-awaited Easey-style animations (zoom-panning between points) possible.
+- Refactoring **projections** code to make it easier to set up flat maps and weird projections and customize how Leaflet handles them.
+- Refactoring the **vector layers** code to make it possible to use different rendering backends (Canvas, SVG, etc.) for different layers on the same map and switch between them easily. This will also open it up for interesting extensions, like indexing layers with [RBush](https://github.com/mourner/rbush) for fast interaction features.
 
 While it's an ambitious plan and it may take more than one stable release, finishing all those refactorings will mean that Leaflet is getting ready for a 1.0 release.
 

@@ -4,7 +4,7 @@ category: events
 repo: https://github.com/geoloep/Leaflet.ClickTolerance
 author: Geoloep
 author-url: https://github.com/geoloep
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

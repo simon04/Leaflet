@@ -10,6 +10,7 @@ css: "body {
 		width: 100vw;
 	}"
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, Marker, Circle} from 'leaflet';
 	const map = new LeafletMap('map').fitWorld();

@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/dagjomar/Leaflet.ZoomCSS
 author: Dag Jomar Mersland
 author-url: https://github.com/dagjomar
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

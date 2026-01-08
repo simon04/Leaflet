@@ -4,7 +4,7 @@ category: markers-renderers
 repo: https://github.com/damianc/leaflet-place-groups-picker
 author: damianc
 author-url: https://github.com/damianc
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

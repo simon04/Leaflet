@@ -17,12 +17,12 @@ Let's have a look at a simplified UML Class diagram for Leaflet. There are more 
 
 From a technical point of view, Leaflet can be extended in different ways:
 
-* The most common: creating a new subclass of `L.Layer`, `L.Handler` or `L.Control`.
-	* Layers move when the map is moved/zoomed
-	* Handlers are invisible and interpret browser events
-	* Controls are fixed interface elements
-* Including more, or replacing functionality (methods, fields) of an existing class with `L.Class.include()`
-* Using `L.Class.addInitHook()` to run additional constructor code.
+- The most common: creating a new subclass of `L.Layer`, `L.Handler` or `L.Control`.
+  - Layers move when the map is moved/zoomed
+  - Handlers are invisible and interpret browser events
+  - Controls are fixed interface elements
+- Including more, or replacing functionality (methods, fields) of an existing class with `L.Class.include()`
+- Using `L.Class.addInitHook()` to run additional constructor code.
 
 ## Extending Leaflet Classes
 
@@ -34,13 +34,12 @@ Because Leaflet was created before any standardized class syntax existed, it com
 
 `L.Class`, or other built-in Leaflet classes derived from it (such as `L.Layer`, `L.Handler`, `L.Control`, etc.), can be extended in the same manner as any other JavaScript class, by using the [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) keyword. However, unlike regular JavaScript classes, Leaflet classes do not support the [`constructor()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) method. Instead, constructor logic should go into a special `initialize()` method to preserve backwards compatibility with older versions of Leaflet:
 
-
 ```js
 class RotateMarker extends Marker {
-	initialize(latlng, rotation, options) {
-		super.initialize(latlng, options);
-		this._rotation = rotation;
-	}
+  initialize(latlng, rotation, options) {
+    super.initialize(latlng, options);
+    this._rotation = rotation;
+  }
 }
 ```
 
@@ -48,9 +47,9 @@ class RotateMarker extends Marker {
 
 When creating Leaflet classes, adhere to these conventions:
 
-* Class names should be in `UpperCamelCase`.
-* Method and property names should be in `lowerCamelCase`.
-* Private properties and methods start with an underscore (`_`). This indicates they're internal and shouldn't be used directly.
+- Class names should be in `UpperCamelCase`.
+- Method and property names should be in `lowerCamelCase`.
+- Private properties and methods start with an underscore (`_`). This indicates they're internal and shouldn't be used directly.
 
 ### Setting default options
 
@@ -58,20 +57,20 @@ All classes that extend from `L.Class` can be provided with default options by c
 
 ```js
 class MyBox extends Class {
-	static {
-		this.setDefaultOptions({
-			width: 1,
-			height: 1
-		});
-	}
+  static {
+    this.setDefaultOptions({
+      width: 1,
+      height: 1,
+    });
+  }
 
-	initialize(name, options) {
-		super.initialize(options);
-		this.name = name;
-	}
+  initialize(name, options) {
+    super.initialize(options);
+    this.name = name;
+  }
 }
 
-const instance = new MyBox('Red', {width: 10});
+const instance = new MyBox("Red", { width: 10 });
 
 console.log(instance.name); // Outputs "Red"
 console.log(instance.options.width); // Outputs "10"
@@ -82,14 +81,14 @@ These options are inherited from parent classes, and merged automatically:
 
 ```js
 class MyCube extends MyBox {
-	static {
-		this.setDefaultOptions({
-			depth: 1
-		});
-	}
+  static {
+    this.setDefaultOptions({
+      depth: 1,
+    });
+  }
 }
 
-const cube = new MyCube('Blue');
+const cube = new MyCube("Blue");
 
 console.log(cube.options.width); // Outputs "1", parent class default
 console.log(cube.options.height); // Outputs "1", parent class default
@@ -102,25 +101,25 @@ Leaflet provides `.include()` to add or override methods in existing classes. Th
 
 ```js
 class MyLayer extends Layer {
-	initialize(options) {
-		super.initialize(options);
-		this._count = 0;
-	}
+  initialize(options) {
+    super.initialize(options);
+    this._count = 0;
+  }
 
-	incrementCount() {
-		return ++this._count;
-	}
+  incrementCount() {
+    return ++this._count;
+  }
 }
 
 // Add new methods or override existing ones
 MyLayer.include({
-	_getCountStep() {
-		return 2;
-	},
+  _getCountStep() {
+    return 2;
+  },
 
-	incrementCount() {
-		return this._count += this._getCountStep();
-	}
+  incrementCount() {
+    return (this._count += this._getCountStep());
+  },
 });
 
 const instance = new MyLayer();
@@ -135,25 +134,25 @@ Use `addInitHook()` to run code after `initialize()` completes. This is useful f
 
 ```js
 class MyBox extends Class {
-	static {
-		this.setDefaultOptions({
-			width: 1,
-			height: 1
-		});
-	}
+  static {
+    this.setDefaultOptions({
+      width: 1,
+      height: 1,
+    });
+  }
 }
 
-MyBox.addInitHook(function() {
-	this._area = this.options.width * this.options.height;
+MyBox.addInitHook(function () {
+  this._area = this.options.width * this.options.height;
 });
 
 MyBox.include({
-	getArea() {
-		return this._area;
-	}
+  getArea() {
+    return this._area;
+  },
 });
 
-const box = new MyBox({width: 5, height: 10});
+const box = new MyBox({ width: 5, height: 10 });
 console.log(box.getArea()); // Outputs "50"
 ```
 
@@ -161,19 +160,19 @@ console.log(box.getArea()); // Outputs "50"
 
 ```js
 class MyCube extends MyBox {
-	static {
-		this.setDefaultOptions({
-			depth: 1
-		});
-	}
+  static {
+    this.setDefaultOptions({
+      depth: 1,
+    });
+  }
 
-	_calculateVolume(multiplier/*, arg2, arg3. etc. */) {
-		this._volume = this.options.width * this.options.height * this.options.depth * multiplier;
-	}
+  _calculateVolume(multiplier /*, arg2, arg3. etc. */) {
+    this._volume = this.options.width * this.options.height * this.options.depth * multiplier;
+  }
 }
 
-MyCube.addInitHook('_calculateVolume', 1/*, arg2, arg3. etc. */);
+MyCube.addInitHook("_calculateVolume", 1 /*, arg2, arg3. etc. */);
 
-const cube = new MyCube({width: 2, height: 3, depth: 4});
+const cube = new MyCube({ width: 2, height: 3, depth: 4 });
 console.log(cube._volume); // Outputs "24"
 ```

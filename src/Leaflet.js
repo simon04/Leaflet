@@ -1,23 +1,23 @@
-import pkg from '../package.json' with {type: 'json'};
+import pkg from "../package.json" with { type: "json" };
 export const version = pkg.version;
 
 // control
-export * from './control/index.js';
+export * from "./control/index.js";
 
 // core
-export * from './core/index.js';
+export * from "./core/index.js";
 
 // dom
-export * from './dom/index.js';
+export * from "./dom/index.js";
 
 // geometry
-export * from './geometry/index.js';
+export * from "./geometry/index.js";
 
 // geo
-export * from './geo/index.js';
+export * from "./geo/index.js";
 
 // layer
-export * from './layer/index.js';
+export * from "./layer/index.js";
 
 // map
-export * from './map/index.js';
+export * from "./map/index.js";

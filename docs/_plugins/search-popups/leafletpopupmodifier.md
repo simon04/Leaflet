@@ -4,7 +4,7 @@ category: search-popups
 repo: https://github.com/slutske22/leaflet-popup-modifier
 author: Slutske22
 author-url: https://github.com/slutske22
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

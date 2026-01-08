@@ -1,13 +1,12 @@
-Contributing to Leaflet
-=======================
+# Contributing to Leaflet
 
- 1. [Getting Involved](#getting-involved)
- 2. [Reporting Bugs](#reporting-bugs)
- 3. [Contributing Code](#contributing-code)
- 4. [Running the Tests](#running-the-tests)
- 6. [Improving Documentation](#improving-documentation)
- 7. [Code of Conduct](#code-of-conduct)
- 8. [Thank You](#thank-you)
+1.  [Getting Involved](#getting-involved)
+2.  [Reporting Bugs](#reporting-bugs)
+3.  [Contributing Code](#contributing-code)
+4.  [Running the Tests](#running-the-tests)
+5.  [Improving Documentation](#improving-documentation)
+6.  [Code of Conduct](#code-of-conduct)
+7.  [Thank You](#thank-you)
 
 ## Getting Involved
 
@@ -32,13 +31,13 @@ and if it's already reported, just add any additional details in the comments.
 After you've made sure that you've found a new Leaflet bug,
 here are some tips for creating a helpful report that will make fixing it much easier and quicker:
 
- * Write a **descriptive, specific title**. Bad: *Problem with polylines*. Good: *Doing X in IE9 causes Z*.
- * Include **browser, OS and Leaflet version** info in the description.
- * Create a **simple test case** that demonstrates the bug (e.g. using [Leaflet plunker](http://leafletjs.com/edit.html)).
- * Check whether the bug can be reproduced in **other browsers**.
- * Check if the bug occurs in the stable version, main, or both.
- * *Bonus tip:* if the bug only appears in the main version but the stable version is fine,
-   use `git bisect` to find the exact commit that introduced the bug.
+- Write a **descriptive, specific title**. Bad: _Problem with polylines_. Good: _Doing X in IE9 causes Z_.
+- Include **browser, OS and Leaflet version** info in the description.
+- Create a **simple test case** that demonstrates the bug (e.g. using [Leaflet plunker](http://leafletjs.com/edit.html)).
+- Check whether the bug can be reproduced in **other browsers**.
+- Check if the bug occurs in the stable version, main, or both.
+- _Bonus tip:_ if the bug only appears in the main version but the stable version is fine,
+  use `git bisect` to find the exact commit that introduced the bug.
 
 If you just want some help with your project,
 try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/leaflet)
@@ -56,9 +55,9 @@ Before sending a pull request with a new feature, check if it's been discussed b
 on [GitHub issues](https://github.com/Leaflet/Leaflet/issues)
 and ask yourself two questions:
 
- 1. Are you sure that this new feature is important enough to justify its presence in the Leaflet core?
+1.  Are you sure that this new feature is important enough to justify its presence in the Leaflet core?
     Or will it look better as a plugin in a separate repository?
- 2. Is it written in a simple, concise way that doesn't add bulk to the codebase?
+2.  Is it written in a simple, concise way that doesn't add bulk to the codebase?
 
 If your feature or API improvement did get merged into main,
 please consider submitting another pull request with the corresponding [documentation update](#improving-documentation).
@@ -72,7 +71,9 @@ Then run the following commands in the project root to install dependencies:
 ```
 npm install
 ```
+
 or, if you prefer [`yarn`](https://yarnpkg.com/) over `npm`:
+
 ```
 yarn install
 ```
@@ -89,9 +90,9 @@ Please do not commit to the `main` branch of your fork — otherwise your unrela
 You should also follow the code style and whitespace conventions of the original codebase.
 In particular, use tabs for indentation and spaces for alignment.
 
-Before committing your changes, run `npm run lint` to catch any JS errors in the code and fix them. 
-The same command is automatically executed while committing. 
-You can prevent it from execution with the git flag `--no-verify`: `git commit -m "WIP" --no-verify`.  
+Before committing your changes, run `npm run lint` to catch any JS errors in the code and fix them.
+The same command is automatically executed while committing.
+You can prevent it from execution with the git flag `--no-verify`: `git commit -m "WIP" --no-verify`.
 
 Also, please make sure that you have [line endings configured properly](https://help.github.com/articles/dealing-with-line-endings) in Git! Otherwise the diff will show that all lines of a file were changed even if you touched only one.
 
@@ -118,7 +119,7 @@ on rebuilding the bundles whenever any source file changes.
 
 ## Running the Tests
 
-Before running the tests, make sure that the source code has been built (as mentioned above). If you want to run the tests in the background while working on Leaflet, it is recommended you run the build in `watch` mode. This way the tests will automatically re-run when changes to the source code are made. 
+Before running the tests, make sure that the source code has been built (as mentioned above). If you want to run the tests in the background while working on Leaflet, it is recommended you run the build in `watch` mode. This way the tests will automatically re-run when changes to the source code are made.
 
 To run the tests from the command line, ensure you have [Google Chrome](https://www.google.com/chrome/) installed and then run:
 
@@ -133,6 +134,7 @@ npm test -- --browsers Firefox
 ```
 
 For a list of available browsers see the documentation of the included launcher plugins:
+
 - [`karma-chrome-launcher`](https://github.com/karma-runner/karma-chrome-launcher#available-browsers)
 - [`karma-firefox-launcher`](https://github.com/karma-runner/karma-firefox-launcher#configuration)
 - [`karma-safarinative-launcher`](https://github.com/muthu90ec/karma-safarinative-launcher#readme)

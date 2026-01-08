@@ -51,15 +51,15 @@ You may already have a screen reader pre-installed,
 for example:
 
 - [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1)
-on Windows
+  on Windows
 - [Orca](https://help.gnome.org/users/orca/stable/index.html.en)
-on Linux
+  on Linux
 - [TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en)
-on Android
+  on Android
 - VoiceOver on
-[macOS](https://support.apple.com/guide/voiceover/welcome/mac)
-and
-[iOS](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)
+  [macOS](https://support.apple.com/guide/voiceover/welcome/mac)
+  and
+  [iOS](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)
 
 ### Purely decorative maps
 
@@ -79,7 +79,7 @@ polyfill:
 
 ```html
 <!-- This map is for aesthetic purposes only, and can not be interacted with due to the 'inert' property! -->
-<div id='decorative-map' inert></div>
+<div id="decorative-map" inert></div>
 ```
 
 ### Utilizing plugins

@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Custom Icons Example
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, Marker, Icon} from 'leaflet';
 	const map = new LeafletMap('map').setView([51.5, -0.09], 13);

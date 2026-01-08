@@ -4,7 +4,7 @@ category: basemap-providers
 repo: https://github.com/tontita/Leaflet.KoreanTmsProviders
 author: Seong Choi
 author-url: https://github.com/tontita/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

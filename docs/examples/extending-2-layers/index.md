@@ -19,15 +19,15 @@ Let's illustrate with a custom `L.TileLayer` that will display random kitten ima
 
 ```js
 class KittenTileLayer extends TileLayer {
-	getTileUrl(coords) {
-		const i = Math.ceil(Math.random() * 4) - 1;
-		const tag = ['orange', 'hat', 'cute', 'small'];
-		return `https://cataas.com/cat/${tag[i]}?width=256&height=256`;
-	}
+  getTileUrl(coords) {
+    const i = Math.ceil(Math.random() * 4) - 1;
+    const tag = ["orange", "hat", "cute", "small"];
+    return `https://cataas.com/cat/${tag[i]}?width=256&height=256`;
+  }
 
-	getAttribution() {
-		return '<a href="https://cataas.com/">CATAAS - Cat as a service</a>';
-	}
+  getAttribution() {
+    return '<a href="https://cataas.com/">CATAAS - Cat as a service</a>';
+  }
 }
 
 new KittenTileLayer().addTo(map);
@@ -47,17 +47,16 @@ An example of a custom `GridLayer` is showing the tile coordinates in a `<div>`.
 
 ```js
 class DebugCoordsGridLayer extends GridLayer {
-	createTile(coords) {
-		const tile = document.createElement('div');
-		tile.innerHTML = [coords.x, coords.y, coords.z].join(', ');
-		tile.style.outline = '1px solid red';
-		return tile;
-	}
+  createTile(coords) {
+    const tile = document.createElement("div");
+    tile.innerHTML = [coords.x, coords.y, coords.z].join(", ");
+    tile.style.outline = "1px solid red";
+    return tile;
+  }
 }
 
 map.addLayer(new DebugCoordsGridLayer());
 ```
-
 
 If the element has to do some asynchronous initialization, then use the second function parameter `done` and call it back when the tile is ready (for example, when an image has been fully loaded) or when there is an error. In here, we'll just delay the tiles artificially:
 
@@ -82,53 +81,51 @@ A very basic `<canvas>` `GridLayer` looks like:
 
 ```js
 class CanvasCirclesGridLayer extends GridLayer {
-	createTile(coords) {
-		const tile = document.createElement('canvas');
+  createTile(coords) {
+    const tile = document.createElement("canvas");
 
-		const tileSize = this.getTileSize();
-		tile.setAttribute('width', tileSize.x);
-		tile.setAttribute('height', tileSize.y);
+    const tileSize = this.getTileSize();
+    tile.setAttribute("width", tileSize.x);
+    tile.setAttribute("height", tileSize.y);
 
-		const ctx = tile.getContext('2d');
+    const ctx = tile.getContext("2d");
 
-		// Draw whatever is needed in the canvas context
-		// For example, circles which get bigger as we zoom in
-		ctx.beginPath();
-		ctx.arc(tileSize.x/2, tileSize.x/2, 4 + coords.z*4, 0, 2*Math.PI, false);
-		ctx.fill();
+    // Draw whatever is needed in the canvas context
+    // For example, circles which get bigger as we zoom in
+    ctx.beginPath();
+    ctx.arc(tileSize.x / 2, tileSize.x / 2, 4 + coords.z * 4, 0, 2 * Math.PI, false);
+    ctx.fill();
 
-		return tile;
-	}
+    return tile;
+  }
 }
 ```
 
 {% include frame.html url="canvascircles.html" %}
 
-
 ## The Pixel Origin
 
 Creating custom `L.Layer`s is possible, but needs a deeper knowledge of how Leaflet positions HTML elements. The abridged version is:
 
-* The `L.Map` container has "map panes", which are `<div>`s.
-* `L.Layer`s are HTML elements inside a map pane
-* The map transforms all `LatLng`s to coordinates in the map's CRS, and from that into absolute "pixel coordinates" (the origin of the CRS is the same as the origin of the pixel coordinates)
-* When the `L.Map` is ready (has a center `LatLng` and a zoom level), the absolute pixel coordinates of the top-left corner become the "pixel origin"
-* Each `L.Layer` is offset from its map pane according to the pixel origin and the absolute pixel coordinates of the layer's `LatLng`s
-* The pixel origin is reset after each `zoomend` or `viewreset` event on the `L.Map`, and every `L.Layer` has to recalculate its position (if needed)
-* The pixel origin is *not* reset when panning the map around; instead, the whole panes are repositioned.
+- The `L.Map` container has "map panes", which are `<div>`s.
+- `L.Layer`s are HTML elements inside a map pane
+- The map transforms all `LatLng`s to coordinates in the map's CRS, and from that into absolute "pixel coordinates" (the origin of the CRS is the same as the origin of the pixel coordinates)
+- When the `L.Map` is ready (has a center `LatLng` and a zoom level), the absolute pixel coordinates of the top-left corner become the "pixel origin"
+- Each `L.Layer` is offset from its map pane according to the pixel origin and the absolute pixel coordinates of the layer's `LatLng`s
+- The pixel origin is reset after each `zoomend` or `viewreset` event on the `L.Map`, and every `L.Layer` has to recalculate its position (if needed)
+- The pixel origin is _not_ reset when panning the map around; instead, the whole panes are repositioned.
 
 This might be a bit overwhelming, so consider the following explanatory map:
 
 {% include frame.html url="pixelorigin.html" %}
 
-The CRS origin (green) stays in the same `LatLng`. The pixel origin (red) always starts at the top-left corner. The pixel origin moves around when the map is panned (map panes are repositioned relative to the map's container), and stays in the same place in the screen when zooming (map panes are *not* repositioned, but layers might redraw themselves). The absolute pixel coordinate to the pixel origin is updated when zooming, but is not updated when panning. Note how the absolute pixel coordinates (the distance to the green bracket) double every time the map is zoomed in.
+The CRS origin (green) stays in the same `LatLng`. The pixel origin (red) always starts at the top-left corner. The pixel origin moves around when the map is panned (map panes are repositioned relative to the map's container), and stays in the same place in the screen when zooming (map panes are _not_ repositioned, but layers might redraw themselves). The absolute pixel coordinate to the pixel origin is updated when zooming, but is not updated when panning. Note how the absolute pixel coordinates (the distance to the green bracket) double every time the map is zoomed in.
 
 To position anything (for example, a blue `L.Marker`), its `LatLng` is converted to an absolute pixel coordinate inside the map's `L.CRS`. Then the absolute pixel coordinate of the pixel origin is subtracted from its absolute pixel coordinate, giving an offset relative to the pixel origin (light blue). As the pixel origin is the top-left corner of all map panes, this offset can be applied to the HTML element of the marker's icon. The marker's `iconAnchor` (dark blue line) is achieved via negative CSS margins.
 
 The `L.Map.project()` and `L.Map.unproject()` methods operate with these absolute pixel coordinates. Likewise, `L.Map.latLngToLayerPoint()` and `L.Map.layerPointToLatLng()` work with the offset relative to the pixel origin.
 
 Different layers apply these calculations in different ways. `L.Marker`s simply reposition their icons; `L.GridLayer`s calculate the bounds of the map (in absolute pixel coordinates) and then calculate the list of tile coordinates to request; vector layers (polylines, polygons, circle markers, etc) transform each `LatLng` to pixels and draw the geometries using SVG or `<canvas>`.
-
 
 ### `onAdd` and `onRemove`
 
@@ -161,7 +158,7 @@ class CustomLayer extends Layer {
 	_update() {
 		// Recalculate position of container
 
-		DomUtil.setPosition(this._container, point);        
+		DomUtil.setPosition(this._container, point);
 
 		// Add/remove/reposition children elements if needed
 	}
@@ -178,9 +175,9 @@ To give an example, we can have a subclass of `L.Polyline` that will always be r
 
 ```js
 class RedPolyline extends Polyline {
-	onAdd(map) {
-		this.options.color = 'red';
-		super.onAdd(map);
-	}
+  onAdd(map) {
+    this.options.color = "red";
+    super.onAdd(map);
+  }
 }
 ```

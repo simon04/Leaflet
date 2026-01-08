@@ -4,7 +4,7 @@ category: basemap-providers
 repo: https://github.com/sigdeletras/Leaflet.Spain.WMS
 author: Patricio Soriano
 author-url: https://github.com/sigdeletras
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

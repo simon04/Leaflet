@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: GeoJSON Example
 ---
+
 <script src="sample-geojson.js" type="text/javascript"></script>
 
 <script type="module">

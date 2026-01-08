@@ -11,6 +11,7 @@ The main place for all important Leaflet-related news, tutorials, tips and devel
 ---
 
 {% for post in site.posts %}
+
 <div class="clearfix">
 	<div class="post-date">
 		{{ post.date | date_to_string }}

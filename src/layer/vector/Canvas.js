@@ -33,14 +33,13 @@ import {Bounds} from '../../geometry/Bounds.js';
 // @constructor Canvas(options?: Renderer options)
 // Creates a Canvas renderer with the given options.
 export class Canvas extends Renderer {
-
 	static {
 		// @section
 		// @aka Canvas options
 		this.setDefaultOptions({
 			// @option tolerance: Number = 0
 			// How much to extend the click tolerance around a path/object on the map.
-			tolerance: 0
+			tolerance: 0,
 		});
 	}
 
@@ -70,7 +69,7 @@ export class Canvas extends Renderer {
 	}
 
 	_initContainer() {
-		const container = this._container = document.createElement('canvas');
+		const container = (this._container = document.createElement('canvas'));
 
 		DomEvent.on(container, 'pointermove', this._onPointerMove, this);
 		DomEvent.on(container, 'click dblclick pointerdown pointerup contextmenu', this._onClick, this);
@@ -89,7 +88,7 @@ export class Canvas extends Renderer {
 
 	_resizeContainer() {
 		const size = super._resizeContainer();
-		const m = this._ctxScale = window.devicePixelRatio;
+		const m = (this._ctxScale = window.devicePixelRatio);
 
 		// set canvas size (also clearing it); use double size on retina
 		this._container.width = m * size.x;
@@ -97,7 +96,9 @@ export class Canvas extends Renderer {
 	}
 
 	_updatePaths() {
-		if (this._postponeUpdatePaths) { return; }
+		if (this._postponeUpdatePaths) {
+			return;
+		}
 
 		this._redrawBounds = null;
 		for (const layer of Object.values(this._layers)) {
@@ -107,16 +108,15 @@ export class Canvas extends Renderer {
 	}
 
 	_update() {
-		if (this._map._animatingZoom && this._bounds) { return; }
+		if (this._map._animatingZoom && this._bounds) {
+			return;
+		}
 
 		const b = this._bounds,
 		s = this._ctxScale;
 
 		// translate so we use the same path coordinates after canvas element moves
-		this._ctx.setTransform(
-			s, 0, 0, s,
-			-b.min.x * s,
-			-b.min.y * s);
+		this._ctx.setTransform(s, 0, 0, s, -b.min.x * s, -b.min.y * s);
 
 		// Tell paths to redraw themselves
 		this.fire('update');
@@ -135,12 +135,14 @@ export class Canvas extends Renderer {
 		this._updateDashArray(layer);
 		this._layers[Util.stamp(layer)] = layer;
 
-		const order = layer._order = {
+		const order = (layer._order = {
 			layer,
 			prev: this._drawLast,
-			next: null
-		};
-		if (this._drawLast) { this._drawLast.next = order; }
+			next: null,
+		});
+		if (this._drawLast) {
+			this._drawLast.next = order;
+		}
 		this._drawLast = order;
 		this._drawFirst ??= this._drawLast;
 	}
@@ -199,7 +201,9 @@ export class Canvas extends Renderer {
 	}
 
 	_requestRedraw(layer) {
-		if (!this._map) { return; }
+		if (!this._map) {
+			return;
+		}
 
 		this._extendRedrawBounds(layer);
 		this._redrawRequest ??= requestAnimationFrame(this._redraw.bind(this));
@@ -263,16 +267,20 @@ export class Canvas extends Renderer {
 
 		this._drawing = false;
 
-		this._ctx.restore();  // Restore state before clipping.
+		this._ctx.restore(); // Restore state before clipping.
 	}
 
 	_updatePoly(layer, closed) {
-		if (!this._drawing) { return; }
+		if (!this._drawing) {
+			return;
+		}
 
 		const parts = layer._parts,
 		ctx = this._ctx;
 
-		if (!parts.length) { return; }
+		if (!parts.length) {
+			return;
+		}
 
 		ctx.beginPath();
 
@@ -291,8 +299,9 @@ export class Canvas extends Renderer {
 	}
 
 	_updateCircle(layer) {
-
-		if (!this._drawing || layer._empty()) { return; }
+		if (!this._drawing || layer._empty()) {
+			return;
+		}
 
 		const p = layer._point,
 		ctx = this._ctx,
@@ -356,12 +365,13 @@ export class Canvas extends Renderer {
 	}
 
 	_onPointerMove(e) {
-		if (!this._map || this._map.dragging.moving() || this._map._animatingZoom) { return; }
+		if (!this._map || this._map.dragging.moving() || this._map._animatingZoom) {
+			return;
+		}
 
 		const point = this._map.pointerEventToLayerPoint(e);
 		this._handlePointerHover(e, point);
 	}
-
 
 	_handlePointerOut(e) {
 		const layer = this._hoveredLayer;
@@ -401,9 +411,9 @@ export class Canvas extends Renderer {
 		this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e);
 
 		this._pointerHoverThrottled = true;
-		this._pointerHoverThrottleTimeout = setTimeout((() => {
+		this._pointerHoverThrottleTimeout = setTimeout(() => {
 			this._pointerHoverThrottled = false;
-		}), 32);
+		}, 32);
 	}
 
 	_fireEvent(layers, e, type) {
@@ -413,7 +423,9 @@ export class Canvas extends Renderer {
 	_bringToFront(layer) {
 		const order = layer._order;
 
-		if (!order) { return; }
+		if (!order) {
+			return;
+		}
 
 		const next = order.next;
 		const prev = order.prev;
@@ -444,7 +456,9 @@ export class Canvas extends Renderer {
 	_bringToBack(layer) {
 		const order = layer._order;
 
-		if (!order) { return; }
+		if (!order) {
+			return;
+		}
 
 		const next = order.next;
 		const prev = order.prev;

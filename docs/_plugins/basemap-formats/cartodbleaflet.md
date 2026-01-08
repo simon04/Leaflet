@@ -4,7 +4,7 @@ category: basemap-formats
 repo: https://github.com/vizzuality/cartodb-leaflet/
 author: Vizzuality
 author-url: https://www.vizzuality.com/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

@@ -4,7 +4,7 @@ category: basemap-providers
 repo: https://github.com/GeoSensorWebLab/polarmap.js
 author: GeoSensorWeb Lab
 author-url: https://github.com/geosensorweblab
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

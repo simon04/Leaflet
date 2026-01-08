@@ -1,5 +1,5 @@
 ---
 layout: redirected
 sitemap: false
-redirect_to:  quick-start/
+redirect_to: quick-start/
 ---

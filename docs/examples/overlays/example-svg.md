@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: SVG Overlay Tutorial
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, LatLngBounds, SVGOverlay} from 'leaflet';
 

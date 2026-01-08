@@ -17,8 +17,8 @@
 - [ ] Make a new branch for the update
 - [ ] Write a blog post about the new release and put it in `/docs/_posts/`
 - [ ] [Click here to save a snapshot](https://web.archive.org/save/https://leafletjs.com/reference.html)
-of the version of docs prior to this release to the Internet Archive's Wayback Machine
-(and optionally, add a link to the snapshot in `docs/reference-versions.html`).
+      of the version of docs prior to this release to the Internet Archive's Wayback Machine
+      (and optionally, add a link to the snapshot in `docs/reference-versions.html`).
 - [ ] Run `npm run docs` to generate the new `docs/reference.html` and update integrity hashes in `docs/_config.yml`
 - [ ] Update link to latest release in `docs/download.md`
 - [ ] Update the announcement section in `docs/index.html`

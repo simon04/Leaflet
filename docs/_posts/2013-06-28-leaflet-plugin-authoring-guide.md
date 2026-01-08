@@ -26,7 +26,7 @@ The most essential thing to do when publishing a plugin is to include a demo tha
 it's usually the first thing people will look for.
 
 The easiest way to put up a demo is using [GitHub Pages](http://pages.github.com/).
-A good [starting point](https://help.github.com/articles/creating-project-pages-manually) is creating a `gh-pages` branch in your repo and adding an `index.html` page to it  &mdash;
+A good [starting point](https://help.github.com/articles/creating-project-pages-manually) is creating a `gh-pages` branch in your repo and adding an `index.html` page to it &mdash;
 after pushing, it'll be published as `http://<user>.github.io/<repo>`.
 
 #### Readme
@@ -37,9 +37,9 @@ At a minimum it should contain the following items:
 - name of the plugin
 - a simple, concise description of what it does
 - requirements
-	- Leaflet version
-	- other external dependencies (if any)
-	- browser / device compatibility
+  - Leaflet version
+  - other external dependencies (if any)
+  - browser / device compatibility
 - links to demos
 - instructions for including the plugin
 - simple usage code example
@@ -57,23 +57,23 @@ You can either put it in the repo as a `LICENSE` file or just link to the licens
 #### File Structure
 
 Keep the file structure clean and simple,
-don't pile up lots of files in one place  &mdash;
+don't pile up lots of files in one place &mdash;
 make it easy for a new person to find their way in your repo.
 
 A barebones repo for a simple plugin would look like this:
 
-	my-plugin.js
-	README.md
+    my-plugin.js
+    README.md
 
 An example of a file structure for a more sophisticated plugin:
 
-	/src        JS source files
-	/dist       minified plugin JS, CSS, images
-	/spec       test files
-	/examples   HTML examples of plugin usage
-	README.md
-	LICENSE
-	package.json
+    /src        JS source files
+    /dist       minified plugin JS, CSS, images
+    /spec       test files
+    /examples   HTML examples of plugin usage
+    README.md
+    LICENSE
+    package.json
 
 #### Code Conventions
 
@@ -96,16 +96,16 @@ Class names should be in `CapitalizedCamelCase`.
 
 If you have a lot of arguments in your function, consider accepting an options object instead (putting default values where possible so that users don't need specify all of them):
 
-	// bad
-	marker.myPlugin('bla', 'foo', null, {}, 5, 0);
+    // bad
+    marker.myPlugin('bla', 'foo', null, {}, 5, 0);
 
-	// good
-	marker.myPlugin('bla', {
-		optionOne: 'foo',
-		optionThree: 5
-	});
+    // good
+    marker.myPlugin('bla', {
+    	optionOne: 'foo',
+    	optionThree: 5
+    });
 
-And most importantly, keep it simple. Leaflet is all about *simplicity*.
+And most importantly, keep it simple. Leaflet is all about _simplicity_.
 
 Cheers,<br>
 Vladimir.

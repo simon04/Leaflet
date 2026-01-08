@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Small geocoding plugin that brings address searching/lookup (aka geosearching) to Leaflet.<br>			Comes with support for Google, OpenStreetMap Nominatim, Bing, Esri and Nokia. Easily extensible.
+Small geocoding plugin that brings address searching/lookup (aka geosearching) to Leaflet.<br> Comes with support for Google, OpenStreetMap Nominatim, Bing, Esri and Nokia. Easily extensible.

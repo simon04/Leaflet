@@ -4,7 +4,7 @@ category: mouse-coordinates
 repo: https://github.com/PowerPan/leaflet.mouseCoordinate
 author: Johannes Rudolph
 author-url: https://github.com/PowerPan
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

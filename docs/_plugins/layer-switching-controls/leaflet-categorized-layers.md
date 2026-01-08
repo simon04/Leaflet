@@ -4,7 +4,7 @@ category: layer-switching-controls
 repo: https://github.com/robbiet480/leaflet-categorized-layers
 author: Robbie Trencheny
 author-url: https://robbies.domains
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

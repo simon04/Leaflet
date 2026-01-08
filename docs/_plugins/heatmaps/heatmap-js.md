@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-JavaScript Library for HTML canvas based heatmaps.			Its Leaflet layer implementation supports large datasets because it is tile based and uses a quadtree index to store the data.
+JavaScript Library for HTML canvas based heatmaps. Its Leaflet layer implementation supports large datasets because it is tile based and uses a quadtree index to store the data.

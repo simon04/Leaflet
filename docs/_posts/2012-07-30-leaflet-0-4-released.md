@@ -6,34 +6,34 @@ author: Vladimir Agafonkin
 authorsite: http://agafonkin.com/en
 ---
 
-After 5.5 months of development with [33 contributors](https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&to=2012-07-30&type=c) involved since the previous stable release, I'm proud to announce the release of Leaflet 0.4! It comes with a simpler API and *lots* of great improvements and important bugfixes, along with a major update to documentation, an official plugins page and the launch of this developer blog. Lets take a look at the improvements one by one.
+After 5.5 months of development with [33 contributors](https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&to=2012-07-30&type=c) involved since the previous stable release, I'm proud to announce the release of Leaflet 0.4! It comes with a simpler API and _lots_ of great improvements and important bugfixes, along with a major update to documentation, an official plugins page and the launch of this developer blog. Lets take a look at the improvements one by one.
 
 ### Simpler API
 
 Leaflet 0.4 contains several API improvements that allow you to write simpler, terser code ([jQuery](http://jquery.com)-like), while being backwards compatible with the previous approach (so that you can use both styles).
 
-	L.marker([51.5, -0.09])
+    L.marker([51.5, -0.09])
     	.addTo(map)
     	.bindPopup('Hello world!')
     	.openPopup();
 
 First, Leaflet methods now accept [LatLng][], [LatLngBounds][], [Point][] and [Bounds][] objects in a simple array form, so you don't need to always create them explicitly:
 
-	map.panTo([50, 30]); // the same as:
-	map.panTo(new L.LatLng(50, 30));
+    map.panTo([50, 30]); // the same as:
+    map.panTo(new L.LatLng(50, 30));
 
 Second, Map methods like [addLayer][], [addControl][], [openPopup][] got their counterparts from the other side:
 
-	marker.addTo(map);  // same as map.addLayer(marker)
-	control.addTo(map); //         map.addControl(control)
-	popup.openOn(map);  //         map.openPopup(popup)
+    marker.addTo(map);  // same as map.addLayer(marker)
+    control.addTo(map); //         map.addControl(control)
+    popup.openOn(map);  //         map.openPopup(popup)
 
 Along with the fact that all Leaflet methods that don't explicitly return a value return the object itself, this allows for convenient method chaining.
 
 Third, Leaflet classes now come with lowercase shortcuts (class factories) that allow you to create objects without the <code>new</code> keyword, which makes chained code look nicer:
 
-	L.map('map').fitWorld(); // same as
-	(new L.Map('map')).fitWorld();
+    L.map('map').fitWorld(); // same as
+    (new L.Map('map')).fitWorld();
 
 ### Notable New Features
 
@@ -61,27 +61,27 @@ In the previous Leaflet version, pinch-zoom only worked on iOS devices, but now 
 
 A simple, lightweight control that indicates the scale of the current map view in metric and/or imperial systems. As usual, you can customize its appearance with CSS. Take a look at the bottom left corner of the map above!
 
-	L.control.scale().addTo(map);
+    L.control.scale().addTo(map);
 
 #### Polyline and Polygon Editing
 
 Allows users to edit polylines and polygons with a simple, intuitive interface. Note that this feature will eventually be merged into [Leaflet.draw][] --- an awesome plugin for drawing shapes by Jacob Toye.
 
-	polygon.editing.enable();
+    polygon.editing.enable();
 
 #### Div-based Icons
 
 In addition to the image-based [Icon][] class, Leaflet 0.4 gets a [DivIcon][] class for creating lightweight div-based markers (that can contain custom HTML and can be styled with CSS). For example, you can see them in action when editing polylines (the square handles), or in the [Leaflet.markercluster][] plugin I'll talk about later (the colored clusters).
 
-	L.marker([50.505, 30.57], {
-		icon: L.divIcon({className: 'my-div-icon'})
-	}).addTo(map);
+    L.marker([50.505, 30.57], {
+    	icon: L.divIcon({className: 'my-div-icon'})
+    }).addTo(map);
 
 #### Rectangle Layer
 
 Rectangle is a convenient shortcut for creating rectangular area layers. You could do this earlier with polygons, but this is easier:
 
-	L.rectangle([[51.505, -0.03], [51.5, -0.045]]).addTo(map);
+    L.rectangle([[51.505, -0.03], [51.5, -0.045]]).addTo(map);
 
 ### API improvements
 
@@ -101,18 +101,18 @@ Custom Controls are much easier to create now --- checkout the [API docs](../../
 
 [Aaron King][] brought some improvements to [event methods](../../../reference.html#events). `on` and `off` methods can now accept multiple event types at once as a string space-separated types:
 
-	map.on('click dblclick moveend', doStuff);
+    map.on('click dblclick moveend', doStuff);
 
 Also, they can accept an object with types and listener functions as key/value pairs, like this:
 
-	marker.on({
-		click: onMarkerClick,
-		dragend: onMarkerDragEnd
-	});
+    marker.on({
+    	click: onMarkerClick,
+    	dragend: onMarkerDragEnd
+    });
 
 Moreover, now if you only specify an event type to the `off` method, it will remove all listeners tied to this event.
 
-	map.off('click');
+    map.off('click');
 
 #### Other API Improvements
 
@@ -122,16 +122,16 @@ Leaflet 0.4 features more than 30 new methods, options and events across differe
 
 You may think that Leaflet is unbelievably fast already, but this version brings several performance improvements that make it even faster.
 
- * Panning, map resizing and pinch-zoom performance was improved (some tricks behind this will be explained in a future blog post).
- * Updating and removing vector layers on the canvas backend (e.g. on Android 2) works many times faster.
- * Box shadows on controls were replaced with simple borders on mobile devices to improve performance.
- * Vector layers won't flicker after each panning on iOS now.
+- Panning, map resizing and pinch-zoom performance was improved (some tricks behind this will be explained in a future blog post).
+- Updating and removing vector layers on the canvas backend (e.g. on Android 2) works many times faster.
+- Box shadows on controls were replaced with simple borders on mobile devices to improve performance.
+- Vector layers won't flicker after each panning on iOS now.
 
 In addition, there are several usability improvements not already mentioned:
 
- * Panning now works even if there are markers under the cursor (helps on crowded maps).
- * Popup appearance is slightly improved.
- * Tile layer now has <code>detectRetina</code> option that, when enabled, doubles the tile resolution for retina displays (contributed by [Mithgol][])	.
+- Panning now works even if there are markers under the cursor (helps on crowded maps).
+- Popup appearance is slightly improved.
+- Tile layer now has <code>detectRetina</code> option that, when enabled, doubles the tile resolution for retina displays (contributed by [Mithgol][]) .
 
 ### Bugfixes
 
@@ -149,9 +149,9 @@ Download options for Leaflet 0.4 (including the actual download, the CDN-hosted 
 
 I'm still committed to keeping Leaflet as small and lightweight as possible. Here's a breakdown of the current size of the library:
 
- * JavaScript: **27 KB** minified and gzipped (102 KB minified, 176 KB in source, 7578 lines of code)
- * CSS: **1.8 KB** gzipped (8 KB, 377 lines of code)
- * Images: **10 KB** (5 PNG images)
+- JavaScript: **27 KB** minified and gzipped (102 KB minified, 176 KB in source, 7578 lines of code)
+- CSS: **1.8 KB** gzipped (8 KB, 377 lines of code)
+- Images: **10 KB** (5 PNG images)
 
 ### Documentation Update
 
@@ -190,27 +190,24 @@ And, of course, thanks to my amazing company, [CloudMade](http://cloudmade.com),
 Sincerely, <br />
 Vladimir Agafonkin, Leaflet maintainer.
 
- [LatLng]: ../../../reference.html#latlng
- [LatLngBounds]: ../../../reference.html#latlngbounds
- [Point]: ../../../reference.html#point
- [Bounds]: ../../../reference.html#bounds
- [Icon]: ../../../reference.html#icon
- [DivIcon]: ../../../reference.html#divicon
- [GeoJSON]: ../../../reference.html#geojson
-
- [addControl]: ../../../reference.html#map-addcontrol
- [addLayer]: ../../../reference.html#map-addlayer
- [openPopup]: ../../../reference.html#map-openpopup
-
- [Leaflet.draw]: https://github.com/jacobtoye/Leaflet.draw
- [Leaflet.markercluster]: https://github.com/danzel/Leaflet.markercluster
-
- [Dave Leaver]: https://github.com/danzel
- [Jason Sanford]: https://github.com/JasonSanford
- [Aaron King]: https://github.com/Guiswa
- [Mithgol]: https://github.com/Mithgol
- [George MacKerron]: https://github.com/jawj/
- [Jacob Toye]: https://github.com/jacobtoye
+[LatLng]: ../../../reference.html#latlng
+[LatLngBounds]: ../../../reference.html#latlngbounds
+[Point]: ../../../reference.html#point
+[Bounds]: ../../../reference.html#bounds
+[Icon]: ../../../reference.html#icon
+[DivIcon]: ../../../reference.html#divicon
+[GeoJSON]: ../../../reference.html#geojson
+[addControl]: ../../../reference.html#map-addcontrol
+[addLayer]: ../../../reference.html#map-addlayer
+[openPopup]: ../../../reference.html#map-openpopup
+[Leaflet.draw]: https://github.com/jacobtoye/Leaflet.draw
+[Leaflet.markercluster]: https://github.com/danzel/Leaflet.markercluster
+[Dave Leaver]: https://github.com/danzel
+[Jason Sanford]: https://github.com/JasonSanford
+[Aaron King]: https://github.com/Guiswa
+[Mithgol]: https://github.com/Mithgol
+[George MacKerron]: https://github.com/jawj/
+[Jacob Toye]: https://github.com/jacobtoye
 
 <script>
 	var map = L.map('map').setView([51.503, -0.09], 13);

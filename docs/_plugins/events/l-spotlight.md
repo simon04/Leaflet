@@ -4,7 +4,7 @@ category: events
 repo: https://github.com/iboates/leaflet-spotlight
 author: Isaac Boates
 author-url: https://github.com/iboates
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

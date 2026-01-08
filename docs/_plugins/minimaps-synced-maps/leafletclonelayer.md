@@ -4,7 +4,7 @@ category: minimaps-synced-maps
 repo: https://github.com/jieter/leaflet-clonelayer
 author: Jieter
 author-url: https://github.com/jieter
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

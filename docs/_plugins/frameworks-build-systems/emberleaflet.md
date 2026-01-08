@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://miguelcobain.github.io/ember-leaflet/
 author: Miguel Andrade
 author-url: https://github.com/miguelcobain
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

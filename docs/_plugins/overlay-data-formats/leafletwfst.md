@@ -4,7 +4,7 @@ category: overlay-data-formats
 repo: https://github.com/Flexberry/Leaflet-WFST
 author: Flexberry
 author-url: https://github.com/Flexberry/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

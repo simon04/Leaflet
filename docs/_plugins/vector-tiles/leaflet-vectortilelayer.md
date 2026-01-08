@@ -4,7 +4,7 @@ category: vector-tiles
 repo: https://gitlab.com/jkuebart/Leaflet.VectorTileLayer/
 author: Joachim Kuebart
 author-url: https://gitlab.com/jkuebart/
-demo: 
+demo:
 compatible-v0: false
 compatible-v1: true
 compatible-v2: false

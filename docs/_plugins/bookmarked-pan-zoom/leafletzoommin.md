@@ -4,7 +4,7 @@ category: bookmarked-pan-zoom
 repo: https://github.com/alanshaw/leaflet-zoom-min/
 author: Alan Shaw
 author-url: https://github.com/alanshaw/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

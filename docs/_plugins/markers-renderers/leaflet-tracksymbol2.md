@@ -14,5 +14,5 @@ A plugin for showing tracks (triangular symbol) and AIS contacts on the map.
 
 This is an updated version of:
 
-* [leaflet-tracksymbol](https://www.npmjs.com/package/leaflet-tracksymbol)
-* [leaflet-ais-tracksymbol](https://github.com/PowerPan/leaflet-ais-tracksymbol)
+- [leaflet-tracksymbol](https://www.npmjs.com/package/leaflet-tracksymbol)
+- [leaflet-ais-tracksymbol](https://github.com/PowerPan/leaflet-ais-tracksymbol)

@@ -4,7 +4,7 @@ category: edit-geometries
 repo: https://github.com/tcoupin/leaflet-paintpolygon
 author: Thibault Coupin
 author-url: https://github.com/tcoupin
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

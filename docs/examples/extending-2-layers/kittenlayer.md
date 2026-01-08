@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: KittenLayer Example
 ---
+
 <script type="module">
 	import {LeafletMap, CRS, TileLayer} from 'leaflet';
 

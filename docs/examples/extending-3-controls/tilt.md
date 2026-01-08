@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Tilt Handler Example
 ---
+
 <style>
 
 #info {
@@ -22,7 +23,6 @@ title: Tilt Handler Example
 </style>
 
 <div id='info' style=''></div>
-
 
 <script type="module">
 	import {LeafletMap, Handler, Point, DomEvent, TileLayer} from 'leaflet';

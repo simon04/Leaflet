@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Shows a nice spinner on the map using <a href="https://github.com/fgnass/spin.js/">Spin.js</a>,			for asynchronous data load, like with <a href="https://github.com/calvinmetcalf/leaflet-ajax">Leaflet Ajax</a>.
+Shows a nice spinner on the map using <a href="https://github.com/fgnass/spin.js/">Spin.js</a>, for asynchronous data load, like with <a href="https://github.com/calvinmetcalf/leaflet-ajax">Leaflet Ajax</a>.

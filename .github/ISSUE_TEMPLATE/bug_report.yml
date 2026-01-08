@@ -73,6 +73,6 @@ body:
       value: |
         - Leaflet version: 
         - Browser (with version): 
-        - OS/Platform (with version): 
+        - OS/Platform (with version):
     validations:
       required: true

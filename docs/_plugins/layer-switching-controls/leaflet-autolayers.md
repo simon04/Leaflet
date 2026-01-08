@@ -4,7 +4,7 @@ category: layer-switching-controls
 repo: https://github.com/aebadirad/Leaflet.AutoLayers
 author: Alex Ebadirad
 author-url: https://github.com/aebadirad
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

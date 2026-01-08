@@ -8,6 +8,6 @@ authors:
   - given-names: Volodymyr
     family-names: Agafonkin
     email: agafonkin@gmail.com
-repository-code: 'https://github.com/Leaflet/Leaflet'
-url: 'https://leafletjs.com'
+repository-code: "https://github.com/Leaflet/Leaflet"
+url: "https://leafletjs.com"
 license: BSD-2-Clause

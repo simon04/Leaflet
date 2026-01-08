@@ -4,7 +4,7 @@ category: overlay-data-formats
 repo: https://github.com/calvinmetcalf/leaflet.filegdb
 author: Calvin Metcalf
 author-url: https://github.com/calvinmetcalf
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

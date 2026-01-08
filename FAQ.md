@@ -2,11 +2,11 @@
 
 This is a collection of answers to the most frequently asked questions about Leaflet.
 
- 1. [Data Providers](#data-providers)
- 2. [Commercial Use and Licensing](#commercial-use-and-licensing)
- 3. [Features](#features)
- 4. [Performance](#performance)
- 5. [Misc](#misc)
+1.  [Data Providers](#data-providers)
+2.  [Commercial Use and Licensing](#commercial-use-and-licensing)
+3.  [Features](#features)
+4.  [Performance](#performance)
+5.  [Misc](#misc)
 
 ## Data Providers
 
@@ -82,7 +82,6 @@ Just make sure to attribute the use of the library somewhere in the app UI or th
 That only applies to the code, though.
 Make sure you conform to the terms of use of the tile images provider(s) that you choose, as well.
 
-
 ## Features
 
 #### What's the best way to put the data I have on a Leaflet map?
@@ -100,7 +99,6 @@ focusing on _quality_ instead of _quantity_, and leaving all the rest to plugin 
 
 Check out [this video](http://www.youtube.com/watch?v=_P2SaCPbJ4w) of a talk by the Leaflet creator for more background on the story and philosophy behind Leaflet.
 Another essential read is [Advocating Simplicity in Open Source](http://blog.universalmind.com/advocating-simplicity-in-open-source/) by the same guy.
-
 
 ## Performance
 
@@ -125,7 +123,6 @@ What they do under the hood is serving rendered data as image tiles,
 along with additional data to enable interactivity like hovering shapes
 (e.g. done using [UTFGrid](https://www.mapbox.com/developers/utfgrid/) &mdash;
 Leaflet [has a nice plugin](https://github.com/danzel/Leaflet.utfgrid) for it).
-
 
 ## Misc
 

@@ -4,7 +4,7 @@ category: markers-renderers
 repo: https://github.com/PowerPan/leaflet-ais-tracksymbol-search
 author: Johannes Rudolph
 author-url: https://github.com/powerpan
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

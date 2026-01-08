@@ -4,7 +4,7 @@ category: edit-geometries
 repo: https://github.com/umap-project/Leaflet.Storage
 author: Yohan Boniface
 author-url: https://yohanboniface.me/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

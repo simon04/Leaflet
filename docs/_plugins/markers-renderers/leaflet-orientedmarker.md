@@ -4,7 +4,7 @@ category: markers-renderers
 repo: https://github.com/jekuno/leaflet.orientedMarker
 author: jekuno
 author-url: https://github.com/jekuno
-demo: 
+demo:
 compatible-v0: true
 compatible-v1: false
 compatible-v2: false

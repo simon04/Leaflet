@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Video Overlay Tutorial (Video with Controls)
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, LatLngBounds, VideoOverlay, Control, DomUtil, DomEvent} from 'leaflet';
 

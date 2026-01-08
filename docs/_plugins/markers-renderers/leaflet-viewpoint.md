@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Displays circleMarker with multiple directions.	Useful to show photos taken from one point.
+Displays circleMarker with multiple directions. Useful to show photos taken from one point.

@@ -1,3 +1,3 @@
-import {DefaultIcon} from 'leaflet';
+import { DefaultIcon } from "leaflet";
 
-DefaultIcon.imagePath = '/base/dist/images/';
+DefaultIcon.imagePath = "/base/dist/images/";

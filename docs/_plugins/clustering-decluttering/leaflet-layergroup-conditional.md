@@ -11,4 +11,3 @@ compatible-v2: false
 ---
 
 Control which layers in a group to show based on any condition. E.g. heatmap on low zoom levels, markers on higher levels.
-

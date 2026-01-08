@@ -4,7 +4,7 @@ category: edit-geometries
 repo: https://github.com/kartena/Leaflet.EditableHandlers
 author: Kartena
 author-url: http://www.kartena.se/index.html
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

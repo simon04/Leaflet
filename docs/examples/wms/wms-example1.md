@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: WMS Example 1
 ---
+
 <script type="module">
 	import {LeafletMap, CRS, TileLayerWMS} from 'leaflet';
 

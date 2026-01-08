@@ -23,7 +23,7 @@ LeafletMap.mergeOptions({
 	// @option tapTolerance: Number = 15
 	// The max number of pixels a user can shift his finger during touch
 	// for it to be considered a valid tap.
-	tapTolerance: 15
+	tapTolerance: 15,
 });
 
 export class TapHoldHandler extends Handler {
@@ -38,19 +38,23 @@ export class TapHoldHandler extends Handler {
 
 	_onDown(e) {
 		clearTimeout(this._holdTimeout);
-		if (PointerEvents.getPointers().length !== 1 || e.pointerType === 'mouse') { return; }
+		if (PointerEvents.getPointers().length !== 1 || e.pointerType === 'mouse') {
+			return;
+		}
 
 		this._startPos = this._newPos = new Point(e.clientX, e.clientY);
 
-		this._holdTimeout = setTimeout((() => {
+		this._holdTimeout = setTimeout(() => {
 			this._cancel();
-			if (!this._isTapValid()) { return; }
+			if (!this._isTapValid()) {
+				return;
+			}
 
 			// prevent simulated mouse events https://w3c.github.io/touch-events/#mouse-events
 			DomEvent.on(document, 'pointerup', DomEvent.preventDefault);
 			DomEvent.on(document, 'pointerup pointercancel', this._cancelClickPrevent);
 			this._simulateEvent('contextmenu', e);
-		}), tapHoldDelay);
+		}, tapHoldDelay);
 
 		DomEvent.on(document, 'pointerup pointercancel contextmenu', this._cancel, this);
 		DomEvent.on(document, 'pointermove', this._onMove, this);

@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/themrleon/JSF2Leaf
 author: Leonardo Ciocari
 author-url: https://github.com/themrleon
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

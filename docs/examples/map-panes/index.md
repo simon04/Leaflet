@@ -9,11 +9,11 @@ In Leaflet, map panes group layers together implicitly, without the developer kn
 
 Map panes use the [z-index CSS property](https://developer.mozilla.org/docs/Web/CSS/z-index) to always show some layers on top of others. The [default order](/reference.html#map-pane) is:
 
-* `TileLayer`s and `GridLayer`s
-* `Path`s, like lines, polylines, circles, or `GeoJSON` layers.
-* `Marker` shadows
-* `Marker` icons
-* `Popup`s
+- `TileLayer`s and `GridLayer`s
+- `Path`s, like lines, polylines, circles, or `GeoJSON` layers.
+- `Marker` shadows
+- `Marker` icons
+- `Popup`s
 
 This is why, in Leaflet maps, popups always show "on top" of other layers, markers always show on top of tile layers, etc.
 
@@ -22,7 +22,6 @@ Custom map panes offer the capability to customize this order.
 ## The Default Is Not Always Right
 
 In some particular cases, the default order is not the right one for the map. We can demonstrate this with the [Carto basemaps](https://carto.com/location-data-services/basemaps/) and labels:
-
 
 <style>
 .tiles img {
@@ -59,25 +58,18 @@ We can use the defaults for the basemap tiles and some overlays like GeoJSON lay
 
 Custom map panes are created on a per-map basis, so first create an instance of `L.Map` and the pane:
 
-
     const map = new LeafletMap('map');
     map.createPane('labels');
 
-
 The next step is setting the z-index of the pane. Looking at the [defaults](https://github.com/Leaflet/Leaflet/blob/v1.0.0/dist/leaflet.css#L87), a value of 650 will make the `TileLayer` with the labels show on top of markers but below pop-ups. By using `getPane()`, we have a reference to the [`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement) representing the pane, and change its z-index:
-
 
     map.getPane('labels').style.zIndex = 650;
 
-
 One of the problems of having image tiles on top of other map layers is that the tiles will capture clicks and touches. If a user clicks anywhere on the map, the web browser will assume she clicked on the labels tiles, and not on the GeoJSON or on the markers. This can be solved using [the `pointer-events` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events):
-
 
     map.getPane('labels').style.pointerEvents = 'none';
 
-
 With the pane now ready, we can add the layers, paying attention to use the `pane` option on the labels tiles:
-
 
     const positron = new TileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
             attribution: '©OpenStreetMap, ©CartoDB'
@@ -96,8 +88,4 @@ Finally, add some interaction to each feature on the GeoJSON layer:
 
     map.fitBounds(geojson.getBounds());
 
-
 Now the [example map](example.html) is complete!
-
-
-

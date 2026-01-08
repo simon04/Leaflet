@@ -5,7 +5,8 @@
     {
       "maxSize": "40kB",
       "path": "leaflet.js"
-    }, {
+    },
+    {
       "maxSize": "3.2kB",
       "path": "leaflet.css"
     }

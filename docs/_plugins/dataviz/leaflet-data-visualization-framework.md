@@ -4,7 +4,7 @@ category: dataviz
 repo: https://github.com/humangeo/leaflet-dvf
 author: Scott Fairgrieve
 author-url: https://github.com/sfairgrieve
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

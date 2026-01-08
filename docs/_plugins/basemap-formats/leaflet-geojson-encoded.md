@@ -4,7 +4,7 @@ category: basemap-formats
 repo: https://github.com/geobricks/Leaflet.GeoJSON.Encoded
 author: Geobricks
 author-url: https://github.com/geobricks/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

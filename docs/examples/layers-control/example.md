@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Layers Control Example
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, Marker, LayerGroup, LayersControl} from 'leaflet';
 	const cities = new LayerGroup();

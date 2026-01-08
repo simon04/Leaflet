@@ -28,20 +28,20 @@ Marker icons in Leaflet are defined by [L.Icon](/reference.html#icon) objects, w
 
 ```js
 const greenIcon = new Icon({
-	iconUrl: 'leaf-green.png',
-	shadowUrl: 'leaf-shadow.png',
-	iconSize:     [38, 95], // size of the icon
-	shadowSize:   [50, 64], // size of the shadow
-	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-	shadowAnchor: [4, 62],  // the same for the shadow
-	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+  iconUrl: "leaf-green.png",
+  shadowUrl: "leaf-shadow.png",
+  iconSize: [38, 95], // size of the icon
+  shadowSize: [50, 64], // size of the shadow
+  iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+  shadowAnchor: [4, 62], // the same for the shadow
+  popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 });
 ```
 
 Now putting a marker with this icon on a map is easy:
 
 ```js
-const marker = new Marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+const marker = new Marker([51.5, -0.09], { icon: greenIcon }).addTo(map);
 ```
 
 {% include frame.html url="example-one-icon.html" %}
@@ -52,33 +52,33 @@ What if we need to create several icons that have lots in common? Let's define o
 
 ```js
 class LeafIcon extends Icon {
-	static {
-		this.setDefaultOptions({
-			shadowUrl: 'leaf-shadow.png',
-			iconSize:     [38, 95],
-			shadowSize:   [50, 64],
-			iconAnchor:   [22, 94],
-			shadowAnchor: [4, 62],
-			popupAnchor:  [-3, -76]
-		});
-	}
+  static {
+    this.setDefaultOptions({
+      shadowUrl: "leaf-shadow.png",
+      iconSize: [38, 95],
+      shadowSize: [50, 64],
+      iconAnchor: [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor: [-3, -76],
+    });
+  }
 }
 ```
 
 Now we can create all three of our leaf icons from this class and use them:
 
 ```js
-const greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'}),
-	redIcon = new LeafIcon({iconUrl: 'leaf-red.png'}),
-	orangeIcon = new LeafIcon({iconUrl: 'leaf-orange.png'});
+const greenIcon = new LeafIcon({ iconUrl: "leaf-green.png" }),
+  redIcon = new LeafIcon({ iconUrl: "leaf-red.png" }),
+  orangeIcon = new LeafIcon({ iconUrl: "leaf-orange.png" });
 ```
 
 OK, let's finally put some markers with these icons on the map:
 
 ```js
-new Marker([51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");
-new Marker([51.495, -0.083], {icon: redIcon}).addTo(map).bindPopup("I am a red leaf.");
-new Marker([51.49, -0.1], {icon: orangeIcon}).addTo(map).bindPopup("I am an orange leaf.");
+new Marker([51.5, -0.09], { icon: greenIcon }).addTo(map).bindPopup("I am a green leaf.");
+new Marker([51.495, -0.083], { icon: redIcon }).addTo(map).bindPopup("I am a red leaf.");
+new Marker([51.49, -0.1], { icon: orangeIcon }).addTo(map).bindPopup("I am an orange leaf.");
 ```
 
 That's it. Now take a look at the [full example](example.html), the [`L.Icon` docs](/reference.html#icon), or browse [other examples](../../examples.html).

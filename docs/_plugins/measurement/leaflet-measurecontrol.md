@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-A simple tool to measure distances on maps (*relies on Leaflet.Draw*).
+A simple tool to measure distances on maps (_relies on Leaflet.Draw_).

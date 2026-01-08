@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Use icon font glyphs in your markers (from Font Awesome, Material Design Icons, Glyphicons,			Metro UI icons, Elusive, and other icon fonts).
+Use icon font glyphs in your markers (from Font Awesome, Material Design Icons, Glyphicons, Metro UI icons, Elusive, and other icon fonts).

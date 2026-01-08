@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/mstahv/v-leaflet
 author: Matti Tahvonen
 author-url: https://github.com/mstahv
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

@@ -4,7 +4,7 @@ category: 3rd-party-integration
 repo: https://wordpress.org/plugins/locations-and-areas/
 author: 100plugins
 author-url: https://www.locations-and-areas.com/?ref=leafletjs.com
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

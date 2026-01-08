@@ -4,7 +4,7 @@ category: layer-switching-controls
 repo: https://github.com/stefanocudini/leaflet-panel-layers
 author: Stefano Cudini
 author-url: https://opengeo.tech/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

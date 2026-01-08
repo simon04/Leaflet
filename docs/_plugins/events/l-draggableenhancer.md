@@ -4,7 +4,7 @@ category: events
 repo: https://github.com/idawave/Leaflet.DraggableEnhancer
 author: Vincent Dechandon
 author-url: https://github.com/idawave
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

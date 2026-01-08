@@ -4,7 +4,7 @@ category: dataviz
 repo: https://github.com/dynmeth/RaphaelLayer
 author: Dynamic Methods
 author-url: https://github.com/dynmeth
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

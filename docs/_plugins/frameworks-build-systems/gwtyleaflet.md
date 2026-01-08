@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/gwidgets/gwty-leaflet
 author: Zakaria Amine
 author-url: https://github.com/zak905
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

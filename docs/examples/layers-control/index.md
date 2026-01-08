@@ -13,14 +13,14 @@ This tutorial will show you how to group several layers into one, and how to use
 
 Let's suppose you have a bunch of layers you want to combine into a group to handle them as one in your code:
 
-	const 	littleton = new Marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
-			denver    = new Marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
-			aurora    = new Marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
-	    	golden    = new Marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+    const 	littleton = new Marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+    		denver    = new Marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+    		aurora    = new Marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+        	golden    = new Marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
 
 Instead of adding them directly to the map, you can do the following, using the <a href="/reference.html#layergroup">LayerGroup</a> class:
 
-	const cities = new LayerGroup([littleton, denver, aurora, golden]);
+    const cities = new LayerGroup([littleton, denver, aurora, golden]);
 
 Easy enough! Now you have a `cities` layer that combines your city markers into one layer you can add or remove from the map at once.
 
@@ -89,6 +89,4 @@ layerControl.addBaseLayer(openTopoMap, "OpenTopoMap");
 layerControl.addOverlay(parks, "Parks");
 </code></pre>
 
-
 Now let's [view the result on a separate page &rarr;](example.html)
-

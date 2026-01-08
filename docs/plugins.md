@@ -112,20 +112,18 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 
 The following plugins allow loading different maps and provide functionality to tile and image layers.
 
-* [Basemap providers](#basemap-providers)
-* [Basemap formats](#basemap-formats)
-* [Non-map base layers](#non-map-base-layers)
-* [Tile/image display](#tileimage-display)
-* [Tile load](#tile-load)
-* [Vector tiles](#vector-tiles)
-
+- [Basemap providers](#basemap-providers)
+- [Basemap formats](#basemap-formats)
+- [Non-map base layers](#non-map-base-layers)
+- [Tile/image display](#tileimage-display)
+- [Tile load](#tile-load)
+- [Vector tiles](#vector-tiles)
 
 ### Basemap providers
 
 Ready-to-go basemaps, with little or no configuration at all.
 
 {% include plugin_category_table.html category="basemap-providers" %}
-
 
 ### Basemap formats
 
@@ -157,15 +155,14 @@ Plugins to display [vector tiles](https://github.com/mapbox/vector-tile-spec).
 
 {% include plugin_category_table.html category="vector-tiles" %}
 
-
 ## Overlay data
 
 The following plugins provide new ways of loading overlay data (GIS vector data): points, lines and polygons.
 
-* [Overlay data formats](#overlay-data-formats)
-* [Dynamic data loading](#dynamiccustom-data-loading)
-* [Synthetic overlays](#synthetic-overlays)
-* [Data providers](#data-providers)
+- [Overlay data formats](#overlay-data-formats)
+- [Dynamic data loading](#dynamiccustom-data-loading)
+- [Synthetic overlays](#synthetic-overlays)
+- [Data providers](#data-providers)
 
 ### Overlay data formats
 
@@ -191,17 +188,15 @@ Load overlay data from third-party-services. See also [basemap providers](#basem
 
 {% include plugin_category_table.html category="data-providers" %}
 
-
 ## Overlay display
 
 The following plugins provide new ways of displaying overlay data information.
 
-* [Markers & renderers](#markers--renderers)
-* [Overlay animations](#overlay-animations)
-* [Clustering/decluttering](#clusteringdecluttering)
-* [Heatmaps](#heatmaps)
-* [DataViz](#dataviz)
-
+- [Markers & renderers](#markers--renderers)
+- [Overlay animations](#overlay-animations)
+- [Clustering/decluttering](#clusteringdecluttering)
+- [Heatmaps](#heatmaps)
+- [DataViz](#dataviz)
 
 ### Markers & renderers
 
@@ -233,15 +228,14 @@ Powerful multi-purpose libraries for data visualization.
 
 {% include plugin_category_table.html category="dataviz" %}
 
-
 ## Interaction with geometries/features
 
 The following plugins enable users to interact with overlay data: edit geometries, select areas or features, interact with the time dimension, search features and display information about them.
 
-* [Edit geometries](#edit-geometries)
-* [Time & elevation](#time--elevation)
-* [Search & popups](#search--popups)
-* [Area/overlay selection](#areaoverlay-selection)
+- [Edit geometries](#edit-geometries)
+- [Time & elevation](#time--elevation)
+- [Search & popups](#search--popups)
+- [Area/overlay selection](#areaoverlay-selection)
 
 ### Edit geometries
 
@@ -267,29 +261,27 @@ These plugins help users select either overlays or areas in the map.
 
 {% include plugin_category_table.html category="area-overlay-selection" %}
 
-
 ## Map interaction
 
 New ways to interact with the map itself.
 
-* [Layer switching controls](#layer-switching-controls)
-* [Interactive pan/zoom](#interactive-panzoom)
-* [Bookmarked pan/zoom](#bookmarked-panzoom)
-* [Fullscreen](#fullscreen-controls)
-* [Minimaps & synced maps](#minimaps--synced-maps)
-* [Measurement](#measurement)
-* [Mouse coordinates](#mouse-coordinates)
-* [Events](#events)
-* [User interface](#user-interface)
-* [Print/export](#printexport)
-* [Geolocation](#geolocation)
+- [Layer switching controls](#layer-switching-controls)
+- [Interactive pan/zoom](#interactive-panzoom)
+- [Bookmarked pan/zoom](#bookmarked-panzoom)
+- [Fullscreen](#fullscreen-controls)
+- [Minimaps & synced maps](#minimaps--synced-maps)
+- [Measurement](#measurement)
+- [Mouse coordinates](#mouse-coordinates)
+- [Events](#events)
+- [User interface](#user-interface)
+- [Print/export](#printexport)
+- [Geolocation](#geolocation)
 
 ### Layer switching controls
 
 The following plugins enhance or extend `L.LayersControl`.
 
 {% include plugin_category_table.html category="layer-switching-controls" %}
-
 
 ### Interactive pan/zoom
 
@@ -356,7 +348,6 @@ Plugins that extend Leaflet's geolocation capabilities.
 
 {% include plugin_category_table.html category="geolocation" %}
 
-
 ## Miscellaneous
 
 ### Geoprocessing
@@ -385,7 +376,6 @@ Plugin developers: please keep future plugins in individual repositories.
 
 {% include plugin_category_table.html category="plugin-collections" %}
 
-
 ## Integration
 
 ### Frameworks & build systems
@@ -400,15 +390,13 @@ The following plugins integrate Leaflet into third party services or websites.
 
 {% include plugin_category_table.html category="3rd-party-integration" %}
 
-
-
 ## Develop your own
 
 Leaflet keeps it simple. If you can think of a feature that is not required by all Leaflet users, and you can write the JavaScript code in a reusable way, you've got yourself a Leaflet plugin already.
 
 There are no hard requirements on how to create your own plugin, but all developers are encouraged to read the recommendations in the [plugin guide](https://github.com/Leaflet/Leaflet/blob/main/PLUGIN-GUIDE.md).
 
-Once your plugin is ready, you can submit it: just send a pull request with a new plugin file in [/docs/_plugins/](https://github.com/Leaflet/Leaflet/tree/main/docs/_plugins)to our GitHub repository.
+Once your plugin is ready, you can submit it: just send a pull request with a new plugin file in [/docs/\_plugins/](https://github.com/Leaflet/Leaflet/tree/main/docs/_plugins)to our GitHub repository.
 
 <script>
 function loadRepoData() {

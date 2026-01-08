@@ -4,7 +4,7 @@ category: plugin-collections
 repo: https://github.com/Estimap/Spectrum4Leaflet
 author: SVoyt
 author-url: https://github.com/SVoyt
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

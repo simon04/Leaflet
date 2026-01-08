@@ -26,41 +26,39 @@ The game has a built-in square coordinate system, as can be seen in the corners.
 <img src="uqm_map_detail.png" style="border: 1px solid #ccc; border-radius: 5px" /><br/>
 </center>
 
-
 ## CRS.Simple
 
 **CRS** stands for [coordinate reference system](https://en.wikipedia.org/wiki/Spatial_reference_system), a term used by geographers to explain what the coordinates mean in a coordinate vector. For example, `[15, 60]` represents a point in the Indian Ocean if using latitude-longitude on the earth, or the solar system Krueger-Z in our starmap.
 
-A Leaflet map has one CRS (and *one* CRS *only*), that can be changed when creating the map. For our game map we'll use `CRS.Simple`, which represents a square grid:
+A Leaflet map has one CRS (and _one_ CRS _only_), that can be changed when creating the map. For our game map we'll use `CRS.Simple`, which represents a square grid:
 
-	const map = new LeafletMap('map', {
-		crs: CRS.Simple
-	});
+    const map = new LeafletMap('map', {
+    	crs: CRS.Simple
+    });
 
-Then we can just add a `L.ImageOverlay` with the starmap image and its *approximate* bounds:
+Then we can just add a `L.ImageOverlay` with the starmap image and its _approximate_ bounds:
 
-	const bounds = [[0,0], [1000,1000]];
-	const image = new ImageOverlay('uqm_map_full.png', bounds).addTo(map);
+    const bounds = [[0,0], [1000,1000]];
+    const image = new ImageOverlay('uqm_map_full.png', bounds).addTo(map);
 
 And show the whole map:
 
-	map.fitBounds(bounds);
+    map.fitBounds(bounds);
 
 {% include frame.html url="crs-simple-example1.html" %}
 
 This example doesn't quite work, as we cannot see the whole map after doing a `fitBounds()`.
 
-
 ## Common Gotchas in CRS.Simple Maps
 
 In the default Leaflet CRS, `CRS.Earth`, 360 degrees of longitude are mapped to 256 horizontal pixels (at zoom level 0) and approximately 170 degrees of latitude are mapped to 256 vertical pixels (at zoom level 0).
 
-In a `CRS.Simple`, one horizontal map unit is mapped to one horizontal pixel, and *idem* with vertical. This means that the whole map is about 1000x1000 pixels big and won't fit in our HTML container. Luckily, we can set `minZoom` to values lower than zero:
+In a `CRS.Simple`, one horizontal map unit is mapped to one horizontal pixel, and _idem_ with vertical. This means that the whole map is about 1000x1000 pixels big and won't fit in our HTML container. Luckily, we can set `minZoom` to values lower than zero:
 
-	const map = new LeafletMap('map', {
-		crs: CRS.Simple,
-		minZoom: -5
-	});
+    const map = new LeafletMap('map', {
+    	crs: CRS.Simple,
+    	minZoom: -5
+    });
 
 ### Pixels vs. Map Units
 
@@ -68,14 +66,14 @@ One common mistake when using `CRS.Simple` is assuming that the map units equal 
 
 In fact, the image we're using covers more than 1000 map units - there is a sizable margin. Measuring how many pixels there are between the 0 and 1000 coordinates, and extrapolating, we can have the right coordinate bounds for this image:
 
-	const bounds = [[-26.5,-25], [1021.5,1023]];
-	const image = new ImageOverlay('uqm_map_full.png', bounds).addTo(map);
+    const bounds = [[-26.5,-25], [1021.5,1023]];
+    const image = new ImageOverlay('uqm_map_full.png', bounds).addTo(map);
 
 While we're at it, let's add some markers:
 
-	const sol = new LatLng([ 145, 175.2 ]);
-	new Marker(sol).addTo(map);
-	map.setView( [70, 120], 1);
+    const sol = new LatLng([ 145, 175.2 ]);
+    new Marker(sol).addTo(map);
+    map.setView( [70, 120], 1);
 
 {% include frame.html url="crs-simple-example2.html" %}
 
@@ -89,28 +87,28 @@ The debate about whether `[lng, lat]` or `[lat, lng]` or `[y, x]` or `[x, y]` [i
 
 If working with `[y, x]` coordinates with something named `L.LatLng` doesn't make much sense to you, you can easily create wrappers for them:
 
-	const yx = LatLng;
+    const yx = LatLng;
 
-	const xy = function(x, y) {
-		if (Array.isArray(x)) {    // When doing xy([x, y]);
-			return new yx(x[1], x[0]);
-		}
-		return new yx(y, x);  // When doing xy(x, y);
-	};
+    const xy = function(x, y) {
+    	if (Array.isArray(x)) {    // When doing xy([x, y]);
+    		return new yx(x[1], x[0]);
+    	}
+    	return new yx(y, x);  // When doing xy(x, y);
+    };
 
 Now we can add a few stars and even a navigation line with `[x, y]` coordinates:
 
-	const sol      = xy(175.2, 145.0);
-	const mizar    = xy( 41.6, 130.1);
-	const kruegerZ = xy( 13.4,  56.5);
-	const deneb    = xy(218.7,   8.3);
+    const sol      = xy(175.2, 145.0);
+    const mizar    = xy( 41.6, 130.1);
+    const kruegerZ = xy( 13.4,  56.5);
+    const deneb    = xy(218.7,   8.3);
 
-	new Marker(     sol).addTo(map).bindPopup(      'Sol');
-	new Marker(   mizar).addTo(map).bindPopup(    'Mizar');
-	new Marker(kruegerZ).addTo(map).bindPopup('Krueger-Z');
-	new Marker(   deneb).addTo(map).bindPopup(    'Deneb');
+    new Marker(     sol).addTo(map).bindPopup(      'Sol');
+    new Marker(   mizar).addTo(map).bindPopup(    'Mizar');
+    new Marker(kruegerZ).addTo(map).bindPopup('Krueger-Z');
+    new Marker(   deneb).addTo(map).bindPopup(    'Deneb');
 
-	const travel = new Polyline([sol, deneb]).addTo(map);
+    const travel = new Polyline([sol, deneb]).addTo(map);
 
 The map looks pretty much the same, but the code is a bit more readable:
 

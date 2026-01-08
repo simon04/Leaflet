@@ -1,5 +1,5 @@
 ---
 layout: redirected
 sitemap: false
-redirect_to:  map-panes/
+redirect_to: map-panes/
 ---

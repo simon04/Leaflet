@@ -1,8 +1,43 @@
 {
   "name": "leaflet",
   "version": "2.0.0-alpha.1",
-  "homepage": "https://leafletjs.com/",
   "description": "JavaScript library for mobile-friendly interactive maps",
+  "keywords": [
+    "gis",
+    "map"
+  ],
+  "homepage": "https://leafletjs.com/",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Leaflet/Leaflet.git"
+  },
+  "style": "dist/leaflet.css",
+  "files": [
+    "!*.leafdoc",
+    "CHANGELOG.md",
+    "dist",
+    "src",
+    "!dist/leaflet.zip"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/leaflet-src.js",
+    "./styles.css": "./dist/leaflet.css"
+  },
+  "scripts": {
+    "debug": "http-server -c-1",
+    "docs": "node ./build/docs.js && node ./build/integrity.js",
+    "test": "karma start ./spec/karma.conf.cjs",
+    "coverage": "karma start ./spec/karma.conf.cjs --coverage --single-run",
+    "build": "rollup --config build/rollup-config.js",
+    "watch": "npm run build -- --watch",
+    "lint": "eslint .",
+    "lintfix": "npm run lint -- --fix",
+    "bundlemon": "bundlemon",
+    "serve": "cd docs && bundle exec jekyll serve",
+    "prepare": "husky"
+  },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
     "@mapbox/eslint-plugin-script-tags": "^1.0.0",
@@ -33,41 +68,6 @@
     "ssri": "^13.0.0",
     "ui-event-simulator": "^2.0.0"
   },
-  "type": "module",
-  "exports": {
-    ".": "./dist/leaflet-src.js",
-    "./styles.css": "./dist/leaflet.css"
-  },
-  "style": "dist/leaflet.css",
-  "files": [
-    "dist",
-    "src",
-    "!dist/leaflet.zip",
-    "!*.leafdoc",
-    "CHANGELOG.md"
-  ],
-  "scripts": {
-    "debug": "http-server -c-1",
-    "docs": "node ./build/docs.js && node ./build/integrity.js",
-    "test": "karma start ./spec/karma.conf.cjs",
-    "coverage": "karma start ./spec/karma.conf.cjs --coverage --single-run",
-    "build": "rollup --config build/rollup-config.js",
-    "watch": "npm run build -- --watch",
-    "lint": "eslint .",
-    "lintfix": "npm run lint -- --fix",
-    "bundlemon": "bundlemon",
-    "serve": "cd docs && bundle exec jekyll serve",
-    "prepare": "husky"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Leaflet/Leaflet.git"
-  },
-  "keywords": [
-    "gis",
-    "map"
-  ],
-  "license": "BSD-2-Clause",
   "lint-staged": {
     "*.(js|mjs|md)": "eslint --cache --fix"
   }

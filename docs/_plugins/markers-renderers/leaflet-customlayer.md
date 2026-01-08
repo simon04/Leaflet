@@ -4,7 +4,7 @@ category: markers-renderers
 repo: https://github.com/iDerekLi/Leaflet.CustomLayer
 author: Derek Li
 author-url: https://github.com/iDerekLi/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

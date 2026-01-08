@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/axyjo/leaflet-rails
 author: Akshay Joshi
 author-url: https://github.com/axyjo
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

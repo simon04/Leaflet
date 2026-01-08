@@ -6,18 +6,18 @@ The [Leaflet plugins page](http://leafletjs.com/plugins.html) lists dozens of aw
 This guide lists a number of best practices for publishing a Leaflet plugin that meets the quality standards of Leaflet itself.
 
 1. [Presentation](#presentation)
-	- [Repository](#repository)
-	- [Name](#name)
-	- [Demo](#demo)
-	- [Readme](#readme)
-	- [License](#license)
+   - [Repository](#repository)
+   - [Name](#name)
+   - [Demo](#demo)
+   - [Readme](#readme)
+   - [License](#license)
 2. [Code](#code)
-	- [File Structure](#file-structure)
-	- [Code Conventions](#code-conventions)
-	- [Plugin API](#plugin-api)
+   - [File Structure](#file-structure)
+   - [Code Conventions](#code-conventions)
+   - [Plugin API](#plugin-api)
 3. [Content Accessibility](#content-accessibility)
-	- [Accessibility Testing](#accessibility-testing)
-	- [Learn about web accessibility](#learn-about-web-accessibility)
+   - [Accessibility Testing](#accessibility-testing)
+   - [Learn about web accessibility](#learn-about-web-accessibility)
 4. [Publishing on NPM](#publishing-on-npm)
 5. [Module Loaders](#module-loaders)
 6. [Adding to the plugins list](#adding-to-the-plugins-list)
@@ -42,7 +42,7 @@ The most essential thing to do when publishing a plugin is to include a demo tha
 it's usually the first thing people will look for.
 
 The easiest way to put up a demo is using [GitHub Pages](http://pages.github.com/).
-A good [starting point](https://help.github.com/articles/creating-project-pages-manually) is creating a `gh-pages` branch in your repo and adding an `index.html` page to it  &mdash;
+A good [starting point](https://help.github.com/articles/creating-project-pages-manually) is creating a `gh-pages` branch in your repo and adding an `index.html` page to it &mdash;
 after pushing, it'll be published as `http://<user>.github.io/<repo>`.
 
 ### Readme
@@ -53,9 +53,9 @@ At a minimum it should contain the following items:
 - name of the plugin
 - a simple, concise description of what it does
 - requirements
-	- Leaflet version
-	- other external dependencies (if any)
-	- browser / device compatibility
+  - Leaflet version
+  - other external dependencies (if any)
+  - browser / device compatibility
 - links to demos
 - instructions for including the plugin
 - simple usage code example
@@ -73,7 +73,7 @@ You can either put it in the repo as a `LICENSE` file or just link to the licens
 ### File Structure
 
 Keep the file structure clean and simple,
-don't pile up lots of files in one place  &mdash;
+don't pile up lots of files in one place &mdash;
 make it easy for a new person to find their way in your repo.
 
 A barebones repo for a simple plugin would look like this:
@@ -107,11 +107,10 @@ and putting a space after the `function` keyword.
 
 ### Plugin API
 
-* Never expose global variables in your plugin.
-* If you inherit one of the existing classes or have a new class, export it and make it available via import.
-* If you want to add new methods to Leaflet classes, you can do it like this: `Marker.include({myPlugin: …})`.
-* Make your plugin importable like this: `import MyPlugin from 'leaflet-my-plugin'`.
-
+- Never expose global variables in your plugin.
+- If you inherit one of the existing classes or have a new class, export it and make it available via import.
+- If you want to add new methods to Leaflet classes, you can do it like this: `Marker.include({myPlugin: …})`.
+- Make your plugin importable like this: `import MyPlugin from 'leaflet-my-plugin'`.
 
 Function, method, property and factory names should be in `camelCase`.<br>
 Class names should be in `CapitalizedCamelCase`.
@@ -121,16 +120,16 @@ If you have a lot of arguments in your function, consider accepting an options o
 
 ```js
 // bad
-marker.myPlugin('bla', 'foo', null, {}, 5, 0);
+marker.myPlugin("bla", "foo", null, {}, 5, 0);
 
- // good
-marker.myPlugin('bla', {
-	optionOne: 'foo',
-	optionThree: 5
+// good
+marker.myPlugin("bla", {
+  optionOne: "foo",
+  optionThree: 5,
 });
 ```
 
-And most importantly, keep it simple. Leaflet is all about *simplicity*.
+And most importantly, keep it simple. Leaflet is all about _simplicity_.
 
 ## Content Accessibility
 
@@ -224,10 +223,10 @@ to ensure that they are published to NPM.
 
 Once your plugin is published, it is a good idea to add it to the [Leaflet plugins list](http://leafletjs.com/plugins.html). To do so:
 
-* [Fork](https://help.github.com/articles/fork-a-repo/) the Leaflet repo.
-* In the `docs/_plugins/` folder, copy the `template.md` file and add it to a category folder. Then put the information and links about your plugin into the new plugin file.
-* Commit the code to your fork.
-* [Open a pull request](https://help.github.com/articles/creating-a-pull-request/) from your fork to Leaflet's original repo.
+- [Fork](https://help.github.com/articles/fork-a-repo/) the Leaflet repo.
+- In the `docs/_plugins/` folder, copy the `template.md` file and add it to a category folder. Then put the information and links about your plugin into the new plugin file.
+- Commit the code to your fork.
+- [Open a pull request](https://help.github.com/articles/creating-a-pull-request/) from your fork to Leaflet's original repo.
 
 Once the pull request is done, a Leaflet maintainer will have a quick look at your
 plugin and, if everything looks right, your plugin will appear in the list shortly thereafter.

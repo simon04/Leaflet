@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Adds a new event ``mouseintent``, that differs from ``mouseover`` since it reflects user			intentions to aim a particular layer.
+Adds a new event `mouseintent`, that differs from `mouseover` since it reflects user intentions to aim a particular layer.

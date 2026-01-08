@@ -10,8 +10,8 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-An advanced Drupal module to implement (from basic to advanced) Leaflet Maps 
-integrations in Drupal solutions. Implements advanced and easy to use features 
+An advanced Drupal module to implement (from basic to advanced) Leaflet Maps
+integrations in Drupal solutions. Implements advanced and easy to use features
 to both interactively insert | draw geospatial data (points and geometries) and
-represent them dynamically with tokens support from CMS data. Also provides 
+represent them dynamically with tokens support from CMS data. Also provides
 lightweight and easy to use API. Currently used by over 25.000 sites.

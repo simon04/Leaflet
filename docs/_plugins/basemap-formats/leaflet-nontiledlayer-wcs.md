@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Display raster data from Web Coverage Services.  Rasters can be styled and queried in the client.
+Display raster data from Web Coverage Services. Rasters can be styled and queried in the client.

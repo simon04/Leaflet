@@ -4,7 +4,7 @@ category: overlay-animations
 repo: https://github.com/openplans/Leaflet.AnimatedMarker
 author: Aaron Ogle
 author-url: https://github.com/atogle
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

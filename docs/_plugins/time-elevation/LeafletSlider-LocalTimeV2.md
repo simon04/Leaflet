@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-LeafletSlider-LocalTimeV2  enables you to dynamically add and remove Markers (without lag) on a map, and show the daterange in localtime by using a JQuery UI slider
+LeafletSlider-LocalTimeV2 enables you to dynamically add and remove Markers (without lag) on a map, and show the daterange in localtime by using a JQuery UI slider

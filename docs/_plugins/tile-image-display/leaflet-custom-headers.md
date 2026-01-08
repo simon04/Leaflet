@@ -4,7 +4,7 @@ category: tile-image-display
 repo: https://github.com/fifogipo/leaflet-custom-headers
 author: fifogipo
 author-url: https://github.com/fifogipo
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

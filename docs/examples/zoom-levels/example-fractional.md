@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Fractional Zoom Example
 ---
+
 <script type="module">
 	import {LeafletMap, TileLayer, Control, DomUtil} from 'leaflet';
 

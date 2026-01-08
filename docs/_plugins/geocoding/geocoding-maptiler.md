@@ -1,5 +1,5 @@
 ---
-name: Geocoding from MapTiler 
+name: Geocoding from MapTiler
 category: geocoding
 repo: https://github.com/maptiler/maptiler-geocoding-control
 author: M. Ždila | MapTiler

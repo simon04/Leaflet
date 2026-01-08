@@ -1,125 +1,129 @@
-import config from 'eslint-config-mourner';
-import css from '@eslint/css';
-import scriptTags from '@mapbox/eslint-plugin-script-tags';
-import importPlugin from 'eslint-plugin-import-x';
-import globals from 'globals';
-import baselineJs from 'eslint-plugin-baseline-js';
+import config from "eslint-config-mourner";
+import css from "@eslint/css";
+import scriptTags from "@mapbox/eslint-plugin-script-tags";
+import importPlugin from "eslint-plugin-import-x";
+import globals from "globals";
+import baselineJs from "eslint-plugin-baseline-js";
 
 export default [
-	...config.map(c => ({
-		...c,
-		files: ['**/*.js', '**/*.cjs'],
-	})),
-	{
-		ignores: [
-			'dist/*.js',
-			'docs/docs/highlight',
-			'docs/examples/choropleth/us-states.js',
-			'docs/examples/geojson/sample-geojson.js',
-			'docs/examples/map-panes/eu-countries.js',
-			'docs/examples/extending-2-layers/index.md',
-			'docs/examples/quick-start/index.md', // importmap is not recognized by eslint
-			'docs/download.md', // importmap is not recognized by eslint
-			'docs/_posts/2025-05-18-leaflet-2.0.0-alpha.md', // importmap is not recognized by eslint
-			'docs/_posts/201*',
-			'docs/_site',
-			'coverage'
-		]
-	},
-	{
-		files: ['**/*.js', '**/*.cjs'],
-		plugins: {
-			import: importPlugin
-		},
-		rules: {
-			'dot-notation': 'off',
-			'consistent-return': 'off',
-			'curly': 'error',
-			'no-unused-expressions': ['error', {allowShortCircuit: true}],
-			'no-unused-vars': ['error', {caughtErrors: 'none'}],
+  ...config.map((c) => ({
+    ...c,
+    files: ["**/*.js", "**/*.cjs"],
+  })),
+  {
+    ignores: [
+      "dist/*.js",
+      "docs/docs/highlight",
+      "docs/examples/choropleth/us-states.js",
+      "docs/examples/geojson/sample-geojson.js",
+      "docs/examples/map-panes/eu-countries.js",
+      "docs/examples/extending-2-layers/index.md",
+      "docs/examples/quick-start/index.md", // importmap is not recognized by eslint
+      "docs/download.md", // importmap is not recognized by eslint
+      "docs/_posts/2025-05-18-leaflet-2.0.0-alpha.md", // importmap is not recognized by eslint
+      "docs/_posts/201*",
+      "docs/_site",
+      "coverage",
+    ],
+  },
+  {
+    files: ["**/*.js", "**/*.cjs"],
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      "dot-notation": "off",
+      "consistent-return": "off",
+      curly: "error",
+      "no-unused-expressions": ["error", { allowShortCircuit: true }],
+      "no-unused-vars": ["error", { caughtErrors: "none" }],
 
-			'import/extensions': ['error', 'ignorePackages'],
+      "import/extensions": ["error", "ignorePackages"],
 
-			'@stylistic/indent': ['error', 'tab', {VariableDeclarator: 0, flatTernaryExpressions: true}],
-			'@stylistic/no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
-			'@stylistic/key-spacing': 'off',
-			'@stylistic/linebreak-style': ['off', 'unix'],
-			'@stylistic/spaced-comment': 'error',
+      "@stylistic/indent": [
+        "error",
+        "tab",
+        { VariableDeclarator: 0, flatTernaryExpressions: true },
+      ],
+      "@stylistic/no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+      "@stylistic/key-spacing": "off",
+      "@stylistic/linebreak-style": ["off", "unix"],
+      "@stylistic/spaced-comment": "error",
 
-			// TODO: Re-enable the rules below and fix the linting issues.
-			'no-invalid-this': 'off',
-			'prefer-exponentiation-operator': 'error',
-			'prefer-object-has-own': 'error',
-			'prefer-spread': 'off',
-			'no-new': 'off'
-		}
-	},
-	{
-		files: ['**/*.css'],
-		language: 'css/css',
-		...css.configs.recommended,
-		rules: {
-			...css.configs.recommended.rules,
-			'css/no-important': 'warn',
-			'css/use-baseline': ['error', {
-				allowProperties: [
-					'clip',
-					'outline',
-					'print-color-adjust',
-					'user-select',
-					'word-break',
-				],
-				allowSelectors: [
-					'has',
-					'nesting',
-				]
-			}]
-		}
-	},
-	{
-		files: ['**/*.{js,ts,jsx,tsx}'],
-		plugins: {'baseline-js': baselineJs},
-		rules: {
-			'baseline-js/use-baseline': ['error', {
-				available: 'widely',
-				includeWebApis: {preset: 'auto', ignore: [
-					// According to https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio, the feature is only partially supported in Safari:
-					// In Safari on iOS, the devicePixelRatio does not change when the page is zoomed. See bug https://webkit.org/b/124862.
-					'devicepixelratio',
-				]},
-				includeJsBuiltins: {preset: 'auto'},
-			}],
-		},
-	},
-	{
-		files: ['docs/examples/**', 'docs/plugins.md'],
-		rules: {
-			'@stylistic/eol-last': 'off',
-		},
-	},
-	{
-		files: ['spec/**'],
-		languageOptions: {
-			globals: {...globals.mocha}
-		},
-		rules: {
-			'no-unused-expressions': 'off'
-		}
-	},
-	{
-		files: ['docs/**/*.md'],
-		plugins: {
-			scriptTags: {
-				processors: {md: scriptTags.processors['.md']}
-			}
-		},
-		processor: 'scriptTags/md',
-		rules: {
-			'no-unused-vars': 'off',
-			'@stylistic/js/eol-last': 'off'
-		},
-		languageOptions: {
-			globals: {L: false}
-		}
-	}
+      // TODO: Re-enable the rules below and fix the linting issues.
+      "no-invalid-this": "off",
+      "prefer-exponentiation-operator": "error",
+      "prefer-object-has-own": "error",
+      "prefer-spread": "off",
+      "no-new": "off",
+    },
+  },
+  {
+    files: ["**/*.css"],
+    language: "css/css",
+    ...css.configs.recommended,
+    rules: {
+      ...css.configs.recommended.rules,
+      "css/no-important": "warn",
+      "css/use-baseline": [
+        "error",
+        {
+          allowProperties: ["clip", "outline", "print-color-adjust", "user-select", "word-break"],
+          allowSelectors: ["has", "nesting"],
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/*.{js,ts,jsx,tsx}"],
+    plugins: { "baseline-js": baselineJs },
+    rules: {
+      "baseline-js/use-baseline": [
+        "error",
+        {
+          available: "widely",
+          includeWebApis: {
+            preset: "auto",
+            ignore: [
+              // According to https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio, the feature is only partially supported in Safari:
+              // In Safari on iOS, the devicePixelRatio does not change when the page is zoomed. See bug https://webkit.org/b/124862.
+              "devicepixelratio",
+            ],
+          },
+          includeJsBuiltins: { preset: "auto" },
+        },
+      ],
+    },
+  },
+  {
+    files: ["docs/examples/**", "docs/plugins.md"],
+    rules: {
+      "@stylistic/eol-last": "off",
+    },
+  },
+  {
+    files: ["spec/**"],
+    languageOptions: {
+      globals: { ...globals.mocha },
+    },
+    rules: {
+      "no-unused-expressions": "off",
+    },
+  },
+  {
+    files: ["docs/**/*.md"],
+    plugins: {
+      scriptTags: {
+        processors: { md: scriptTags.processors[".md"] },
+      },
+    },
+    processor: "scriptTags/md",
+    rules: {
+      "no-unused-vars": "off",
+      "@stylistic/js/eol-last": "off",
+    },
+    languageOptions: {
+      globals: { L: false },
+    },
+  },
 ];

@@ -4,7 +4,7 @@ category: synthetic-overlays
 repo: https://github.com/jonshutt/Leaflet.OS.Graticule
 author: Jon Shutt
 author-url: https://github.com/jonshutt
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

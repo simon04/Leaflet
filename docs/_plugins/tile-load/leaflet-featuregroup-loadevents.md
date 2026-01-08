@@ -10,4 +10,4 @@ compatible-v1: false
 compatible-v2: false
 ---
 
-`FeatureGroup` that supports the `"loading"` and `"load"` events (for v0.7.*).
+`FeatureGroup` that supports the `"loading"` and `"load"` events (for v0.7.\*).

@@ -4,7 +4,7 @@ category: 3rd-party-integration
 repo: https://wp-mapit.chandnipatel.in/
 author: Chandni Patel
 author-url: https://chandnipatel.in/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

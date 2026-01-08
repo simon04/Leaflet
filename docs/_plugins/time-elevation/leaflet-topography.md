@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-A set of tools for calculating and visualizing topographic data (elevation, slope, aspect) at lightning speed.  Based on Mapbox RGB Encoded DEM tiles.
+A set of tools for calculating and visualizing topographic data (elevation, slope, aspect) at lightning speed. Based on Mapbox RGB Encoded DEM tiles.

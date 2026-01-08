@@ -4,7 +4,7 @@ category: frameworks-build-systems
 repo: https://github.com/Norkart/Leaflet-LayerConfig
 author: Alexander Nossum
 author-url: https://github.com/alexanno
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

@@ -4,7 +4,7 @@ category: 3rd-party-integration
 repo: https://www.joomla.org/
 author: Astrid Günther
 author-url: https://github.com/astridx
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

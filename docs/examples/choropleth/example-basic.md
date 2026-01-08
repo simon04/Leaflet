@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Basic States Example
 ---
+
 <script type="text/javascript" src="us-states.js"></script>
 <script type="module">
 	import {LeafletMap, TileLayer, GeoJSON} from 'leaflet';

@@ -4,7 +4,7 @@ category: basemap-formats
 repo: https://github.com/azgs/azgs-leaflet
 author: AZGS
 author-url: https://github.com/azgs
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

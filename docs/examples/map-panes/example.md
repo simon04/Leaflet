@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Custom Pane Example
 ---
+
 <script type="text/javascript" src="eu-countries.js"></script>
 
 <script type="module">

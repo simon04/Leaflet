@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Displays rotated, scaled and skewed (but not rubbersheeted) ImageOverlays, given three control points. 
+Displays rotated, scaled and skewed (but not rubbersheeted) ImageOverlays, given three control points.

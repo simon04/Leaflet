@@ -4,7 +4,7 @@ category: routing
 repo: https://github.com/Turistforeningen/leaflet-routing
 author: Norwegian Trekking Association
 author-url: https://github.com/turistforeningen
-demo: 
+demo:
 compatible-v0: true
 compatible-v1: false
 compatible-v2: false

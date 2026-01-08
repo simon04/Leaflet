@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-SuperMap Leaflet is a Leaflet plugins for working with SuperMap service types.         Support for SuperMap services, tiles and more.
+SuperMap Leaflet is a Leaflet plugins for working with SuperMap service types. Support for SuperMap services, tiles and more.

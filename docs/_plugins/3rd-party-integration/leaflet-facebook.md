@@ -4,7 +4,7 @@ category: 3rd-party-integration
 repo: https://github.com/mwasil/Leaflet.Facebook/
 author: Marcin Wasilewski
 author-url: https://marcinwasilewski.eu/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

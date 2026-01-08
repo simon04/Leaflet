@@ -33,30 +33,30 @@ This can be illustrated with a simple handler to pan the map when a mobile devic
 
 ```js
 class TiltHandler extends Handler {
-	addHooks() {
-		DomEvent.on(window, 'deviceorientation', this._tilt, this);
-	}
+  addHooks() {
+    DomEvent.on(window, "deviceorientation", this._tilt, this);
+  }
 
-	removeHooks() {
-		DomEvent.off(window, 'deviceorientation', this._tilt, this);
-	}
+  removeHooks() {
+    DomEvent.off(window, "deviceorientation", this._tilt, this);
+  }
 
-	_tilt(ev) {
-		// Treat Gamma angle as horizontal pan (1 degree = 1 pixel) and Beta angle as vertical pan
-		this._map.panBy( new Point( ev.gamma, ev.beta ) );
-	}
+  _tilt(ev) {
+    // Treat Gamma angle as horizontal pan (1 degree = 1 pixel) and Beta angle as vertical pan
+    this._map.panBy(new Point(ev.gamma, ev.beta));
+  }
 }
 ```
 
 The handler can be attached to the map using `map.addHandler('tilt', L.TiltHandler)` - this will store an instance of `L.TiltHandler` as `map.tilt`. However, it's more usual to attach handlers to all maps with the `addInitHook` syntax:
 
-	Map.addInitHook('addHandler', 'tilt', TiltHandler);
+    Map.addInitHook('addHandler', 'tilt', TiltHandler);
 
 Our handler can now be enabled by running `map.tilt.enable()` and disabled by `map.tilt.disable()`
 
 Moreover, if the map has a property named the same as the handler, then that handler will be enabled by default if that options is `true`, so this will enable our handler by default:
 
-	const map = new LeafletMap('mapDiv', { tilt: true });
+    const map = new LeafletMap('mapDiv', { tilt: true });
 
 To see this example, you'll need a mobile browser which [supports the `deviceorientation` event](http://caniuse.com/#search=deviceorientation) - and even so, this event is particularly flaky and ill-specified, so beware.
 
@@ -74,21 +74,21 @@ The simplest example of a custom control would be a watermark, which is just an 
 
 ```js
 class WatermarkControl extends Control {
-	onAdd(map) {
-		const img = DomUtil.create('img');
+  onAdd(map) {
+    const img = DomUtil.create("img");
 
-		img.src = '../../docs/images/logo.png';
-		img.style.width = '200px';
+    img.src = "../../docs/images/logo.png";
+    img.style.width = "200px";
 
-		return img;
-	}
+    return img;
+  }
 
-	onRemove(map) {
-		// Nothing to do here
-	}
+  onRemove(map) {
+    // Nothing to do here
+  }
 }
 
-new WatermarkControl({ position: 'bottomleft' }).addTo(map);
+new WatermarkControl({ position: "bottomleft" }).addTo(map);
 ```
 
 {% include frame.html url="watermark.html" %}

@@ -5,7 +5,8 @@ title: Overlays
 
 ## Overlays
 
-There are 3 overlays in the Leaflet API: 
+There are 3 overlays in the Leaflet API:
+
 - [`ImageOverlay`](/reference.html#imageoverlay): Raster Layer, Extends [`Layer`](/reference.html#layer)
 - [`VideoOverlay`](/reference.html#videooverlay): Raster Layer, Extends [`ImageOverlay`](/reference.html#imageoverlay)
 - [`SVGOverlay`](/reference.html#svgoverlay): Vector Layer, Extends [`ImageOverlay`](/reference.html#imageoverlay)
@@ -14,7 +15,7 @@ In this tutorial, you’ll learn how to use these overlays.
 
 ### `ImageOverlay`
 
-`L.ImageOverlay` is used to load and display a single image over specific bounds of the map. 
+`L.ImageOverlay` is used to load and display a single image over specific bounds of the map.
 
 To add an image overlay [`L.ImageOverlay`](/reference.html#imageoverlay) use this:
 
@@ -58,8 +59,7 @@ const rectangle = new Rectangle(latLngBounds).addTo(map);
 map.fitBounds(latLngBounds);
 ```
 
-- `opacity` defines the opacity of the image overlay, it equals to `1.0` by default. Decrease this value to make an image overlay transparent and to expose the underlying map layer. 
-	
+- `opacity` defines the opacity of the image overlay, it equals to `1.0` by default. Decrease this value to make an image overlay transparent and to expose the underlying map layer.
 - `errorOverlayUrl` is a URL to the overlay image to show in place of the overlay that failed to load.
 
 - `alt` sets the HTML [`alt`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-alt) attribute to provide an alternative text description of the image. Alternative text is essential information for screen reader users. It can also benefit people during poor network connectivity, in the case the image fails to load. Moreover, it can improve the SEO of a website.
@@ -107,14 +107,14 @@ const osm = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 #### Adding the Video Overlay
 
-Adding a video overlay works very similar to adding an image overlay. 
+Adding a video overlay works very similar to adding an image overlay.
 
 For a video overlay, just:
 
 - Use `L.VideoOverlay` instead of `L.ImageOverlay`
-- `L.VideoOverlay` is used to load and display a video player over specific bounds of the map. Extends [`L.ImageOverlay`](/reference.html#imageoverlay). 
-A video overlay uses the [`<video>`](https://developer.mozilla.org/docs/Web/HTML/Element/video) HTML element.
-- Instead of the image URL, specify one video URL *or* an array of video URLs
+- `L.VideoOverlay` is used to load and display a video player over specific bounds of the map. Extends [`L.ImageOverlay`](/reference.html#imageoverlay).
+  A video overlay uses the [`<video>`](https://developer.mozilla.org/docs/Web/HTML/Element/video) HTML element.
+- Instead of the image URL, specify one video URL _or_ an array of video URLs
 
 ```
 const videoUrls = [
@@ -148,7 +148,6 @@ You can find other options of `L.videoOverlay` in the [documentation](/reference
 
 Video overlays behave like any other Leaflet layer - you can add and remove them, let the user select from several videos using a [layers control](../layers-control/), etc.
 
-
 #### A Bit of Control over the Video
 
 If you read the API documentation, you'll notice that the `L.VideoOverlay` class does not have a `play()` or `pause()` method.
@@ -162,32 +161,32 @@ videoOverlay.getElement().pause();
 This allows us to build custom interfaces. For example, we can build a small subclass of `L.Control` to play/pause this video overlay once it's loaded:
 
 ```js
-videoOverlay.on('load', function () {
-	class MyPauseControl extends Control {
-		onAdd() {
-			const button = DomUtil.create('button');
-			button.title = 'Pause';
-			button.innerHTML = '<span aria-hidden="true">⏸</span>';
-			DomEvent.on(button, 'click', function () {
-				videoOverlay.getElement().pause();
-			});
-			return button;
-		}
-	}
-	class MyPlayControl extends Control {
-		onAdd() {
-			const button = DomUtil.create('button');
-			button.title = 'Play';
-			button.innerHTML = '<span aria-hidden="true">▶️</span>';
-			DomEvent.on(button, 'click', function () {
-				videoOverlay.getElement().play();
-			});
-			return button;
-		}
-	}
+videoOverlay.on("load", function () {
+  class MyPauseControl extends Control {
+    onAdd() {
+      const button = DomUtil.create("button");
+      button.title = "Pause";
+      button.innerHTML = '<span aria-hidden="true">⏸</span>';
+      DomEvent.on(button, "click", function () {
+        videoOverlay.getElement().pause();
+      });
+      return button;
+    }
+  }
+  class MyPlayControl extends Control {
+    onAdd() {
+      const button = DomUtil.create("button");
+      button.title = "Play";
+      button.innerHTML = '<span aria-hidden="true">▶️</span>';
+      DomEvent.on(button, "click", function () {
+        videoOverlay.getElement().play();
+      });
+      return button;
+    }
+  }
 
-	const pauseControl = (new MyPauseControl()).addTo(map);
-	const playControl = (new MyPlayControl()).addTo(map);
+  const pauseControl = new MyPauseControl().addTo(map);
+  const playControl = new MyPlayControl().addTo(map);
 });
 ```
 
@@ -195,7 +194,7 @@ videoOverlay.on('load', function () {
 
 ### `SVGOverlay`
 
-`L.SVGOverlay` is used to load, display and provide DOM access to an SVG file over specific bounds of the map. 
+`L.SVGOverlay` is used to load, display and provide DOM access to an SVG file over specific bounds of the map.
 
 To add an SVG overlay [`L.SVGOverlay`](/reference.html#svgoverlay) use this:
 

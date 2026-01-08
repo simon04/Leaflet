@@ -4,7 +4,7 @@ category: data-providers
 repo: http://jasonsanford.github.io/leaflet-vector-layers/
 author: Jason Sanford
 author-url: http://geojason.info/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

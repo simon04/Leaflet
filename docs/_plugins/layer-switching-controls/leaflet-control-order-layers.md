@@ -4,7 +4,7 @@ category: layer-switching-controls
 repo: http://elesdoar.github.io/leaflet-control-orderlayers/
 author: Michael Salgado
 author-url: https://github.com/elesdoar/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

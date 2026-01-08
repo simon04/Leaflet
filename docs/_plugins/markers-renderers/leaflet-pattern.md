@@ -4,7 +4,7 @@ category: markers-renderers
 repo: https://github.com/teastman/Leaflet.pattern
 author: Tyler Eastman
 author-url: https://github.com/teastman
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

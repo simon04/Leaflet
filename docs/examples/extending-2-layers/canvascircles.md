@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: CanvasCircles Example
 ---
+
 <script type="module">
 	import {LeafletMap, GridLayer} from 'leaflet';
 

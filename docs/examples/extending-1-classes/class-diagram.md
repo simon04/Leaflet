@@ -2,10 +2,11 @@
 layout: tutorial_frame
 title: Leaflet Class Diagram
 css: "#map {
-            width: 100vw;
-            height: 100%;
-        }"
+  width: 100vw;
+  height: 100%;
+  }"
 ---
+
 <script type="module">
 	import {LeafletMap, CRS, ImageOverlay} from 'leaflet';
 

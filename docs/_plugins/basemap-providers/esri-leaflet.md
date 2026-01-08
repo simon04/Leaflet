@@ -4,7 +4,7 @@ category: basemap-providers
 repo: https://esri.github.io/esri-leaflet/
 author: Patrick Arlt
 author-url: https://github.com/patrickarlt/
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

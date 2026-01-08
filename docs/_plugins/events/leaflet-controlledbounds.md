@@ -4,7 +4,7 @@ category: events
 repo: https://github.com/MazeMap/Leaflet.ControlledBounds
 author: Iván Sánchez Ortega
 author-url: https://github.com/IvanSanchez
-demo: 
+demo:
 compatible-v0:
 compatible-v1: true
 compatible-v2: false

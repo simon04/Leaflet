@@ -10,4 +10,4 @@ compatible-v1: true
 compatible-v2: false
 ---
 
-Display small and large GeoTIFF files with configurable resolution.  Built for simplicity and performance.  Integrates with <a href="https://geoblaze.io/">GeoBlaze</a>, a JavaScript raster analysis library.
+Display small and large GeoTIFF files with configurable resolution. Built for simplicity and performance. Integrates with <a href="https://geoblaze.io/">GeoBlaze</a>, a JavaScript raster analysis library.

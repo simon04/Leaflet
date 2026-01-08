@@ -37,18 +37,18 @@ To understand how zoom levels work, first we need a basic introduction to <i>geo
 
 Let's have a look at a simple map locked at zoom zero:
 
-	const map = new LeafletMap('map', {
-		minZoom: 0,
-		maxZoom: 0
-	});
+    const map = new LeafletMap('map', {
+    	minZoom: 0,
+    	maxZoom: 0
+    });
 
-	const cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+    const cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
 
-	const positron = new TileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-		attribution: cartodbAttribution
-	}).addTo(map);
+    const positron = new TileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    	attribution: cartodbAttribution
+    }).addTo(map);
 
-	map.setView([0, 0], 0);
+    map.setView([0, 0], 0);
 
 {% include frame.html url="example-zero.html" %}
 
@@ -60,7 +60,7 @@ Notice that the "whole earth" is just one image, 256 pixels wide and 256 pixels 
 
 Just to be clear: the earth is not a square. Rather, the earth has an irregular shape that can be approximated to [something similar to a sphere](https://en.wikipedia.org/wiki/Geoid).
 
-So we *assume* that the earth is mostly round. To make it flat, we put an imaginary cylinder around, unroll it, and cut it so it looks square:
+So we _assume_ that the earth is mostly round. To make it flat, we put an imaginary cylinder around, unroll it, and cut it so it looks square:
 
 <div class='tiles legend' style='text-align: center'>
 <a title="By derived from US Government USGS [Public domain], via Wikimedia Commons" href="https://en.wikipedia.org/wiki/Map_projection#Cylindrical"><img width="512" alt="Usgs map mercator" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Usgs_map_mercator.svg/512px-Usgs_map_mercator.svg.png"/>
@@ -76,14 +76,14 @@ introduction to the topic:
 
 <center><iframe width="696" height="392" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" allowfullscreen></iframe></center>
 
-Things like geodesy, map projections and coordinate systems are hard, *very hard*
+Things like geodesy, map projections and coordinate systems are hard, _very hard_
 (and out of scope for this tutorial). Assuming that the earth is a square is not
 always the right thing to do, but most of the time works fine enough, makes things
 simpler, and allows Leaflet (and other map libraries) to be fast.
 
 ## Powers of Two
 
-For now, let's just ***assume*** that the world is a square:
+For now, let's just **_assume_** that the world is a square:
 
 <div class='tiles' style='text-align: center'>
 <img src="https://a.basemaps.cartocdn.com/light_all/0/0/0.png" class="bordered-img" alt=""/>
@@ -149,22 +149,21 @@ but not <i>equidistant</i> (does not preserve distances), and not <i>equal-area<
 By adding a `L.ScaleControl` to a map, and panning to the equator and to 60° north,
 we can see how the scale factor <b>doubles</b>. The following example uses
 [javascript timeouts](https://developer.mozilla.org/docs/Web/API/WindowTimers/setTimeout)
-to  do this automatically:
+to do this automatically:
 
-	new ScaleControl().addTo(map);
+    new ScaleControl().addTo(map);
 
-	setInterval(function(){
-		map.setView([0, 0]);
-		setTimeout(function(){
-			map.setView([60, 0]);
-		}, 2000);
-	}, 4000);
+    setInterval(function(){
+    	map.setView([0, 0]);
+    	setTimeout(function(){
+    		map.setView([60, 0]);
+    	}, 2000);
+    }, 4000);
 
 {% include frame.html url="example-scale.html" %}
 
 `L.ScaleControl` shows the scale which applies to the center point of the map.
 At high zoom levels, the scale changes very little, and is not noticeable.
-
 
 ## Controlling the Zoom
 
@@ -174,12 +173,12 @@ will set the zoom level of `map` to `0`.
 
 This example again uses timeouts to alternate between zoom levels `0` and `1` automatically:
 
-	setInterval(function(){
-		map.setZoom(0);
-		setTimeout(function(){
-			map.setZoom(1);
-		}, 2000);
-	}, 4000);
+    setInterval(function(){
+    	map.setZoom(0);
+    	setTimeout(function(){
+    		map.setZoom(1);
+    	}, 2000);
+    }, 4000);
 
 {% include frame.html url="example-setzoom.html" %}
 
@@ -188,13 +187,12 @@ shown in the previous section!
 
 Other ways of setting the zoom are:
 
-* [`setView(center, zoom)`](/reference.html#map-setview), which also sets the map center
-* [`flyTo(center, zoom)`](/reference.html#map-flyto), like `setView` but with a smooth animation
-* [`zoomIn()` / `zoomIn(delta)`](/reference.html#map-zoomin), zooms in `delta` zoom levels, `1` by default
-* [`zoomOut()` / `zoomOut(delta)`](/reference.html#map-zoomout), zooms out `delta` zoom levels, `1` by default
-* [`setZoomAround(fixedPoint, zoom)`](/reference.html#map-setzoomaround), sets the zoom level while keeping a point fixed (what scrollwheel zooming does)
-* [`fitBounds(bounds)`](/reference.html#map-fitbounds), automatically calculates the zoom to fit a rectangular area on the map
-
+- [`setView(center, zoom)`](/reference.html#map-setview), which also sets the map center
+- [`flyTo(center, zoom)`](/reference.html#map-flyto), like `setView` but with a smooth animation
+- [`zoomIn()` / `zoomIn(delta)`](/reference.html#map-zoomin), zooms in `delta` zoom levels, `1` by default
+- [`zoomOut()` / `zoomOut(delta)`](/reference.html#map-zoomout), zooms out `delta` zoom levels, `1` by default
+- [`setZoomAround(fixedPoint, zoom)`](/reference.html#map-setzoomaround), sets the zoom level while keeping a point fixed (what scrollwheel zooming does)
+- [`fitBounds(bounds)`](/reference.html#map-fitbounds), automatically calculates the zoom to fit a rectangular area on the map
 
 ## Fractional Zoom
 
@@ -215,9 +213,9 @@ If you set a value of `0.1`, the valid zoom levels of the map will be `0`, `0.1`
 
 The following example uses a `zoomSnap` value of `0.25`:
 
-	const map = new LeafletMap('map', {
-		zoomSnap: 0.25
-	});
+    const map = new LeafletMap('map', {
+    	zoomSnap: 0.25
+    });
 
 {% include frame.html url="example-fractional.html" %}
 
@@ -242,19 +240,18 @@ option controls how fast the mousewheel zooms in or out.
 
 Here is an example with `zoomSnap` set to zero:
 
-	const map = new LeafletMap('map', {
-		zoomDelta: 0.25,
-		zoomSnap: 0
-	});
+    const map = new LeafletMap('map', {
+    	zoomDelta: 0.25,
+    	zoomSnap: 0
+    });
 
 Try the following, and see how the zoom level changes:
 
-* Pinch-zoom if you have a touchscreen
-* Zoom in/out with your mousewheel
-* Do a box zoom (drag with your mouse while pressing the `shift` key in your keyboard)
-* Use the zoom in/out buttons
+- Pinch-zoom if you have a touchscreen
+- Zoom in/out with your mousewheel
+- Do a box zoom (drag with your mouse while pressing the `shift` key in your keyboard)
+- Use the zoom in/out buttons
 
 {% include frame.html url="example-delta.html" %}
-
 
 That concludes this tutorial. Now play with your zoom levels in your maps!

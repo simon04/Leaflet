@@ -2,6 +2,7 @@
 layout: tutorial_frame
 title: Grid Coordinates Example
 ---
+
 <script type="module">
 	import {LeafletMap, GridLayer} from 'leaflet';
 
